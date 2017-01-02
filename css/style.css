@@ -14,6 +14,8 @@ body {
     display:inline;
 }
 .float-R{
+    font-size:3.5rem;
+    margin:2rem;
     float:right;    
 }
 
