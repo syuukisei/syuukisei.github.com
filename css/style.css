@@ -10,6 +10,10 @@ body {
   margin:8rem auto;
   color: #2581D8;
 }
+.font-50{
+  font-size:8rem;  
+}
+
 .dis-Inline{
     text-align:right;    
     display:inline;
@@ -41,9 +45,7 @@ p {
 
 
 
-.font-50{
-  font-size:3rem;  
-}
+
 .pre-text   {
     padding:2rem;
     margin:auto 2rem;
