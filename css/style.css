@@ -1,4 +1,7 @@
 body {
-  font-size: 120px;
-  color: red;
+  //font-size: 120px;
+  color: #333;
+}
+.font-50{
+  font-size:50px;  
 }
