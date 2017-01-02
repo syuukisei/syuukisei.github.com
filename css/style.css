@@ -4,10 +4,10 @@ html {
     font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/
 }
 body {
-  width: 85%;
+  width: 75%;
   font-size: 1.4rem;/*1.4 × 10px = 14px
                       2.4 × 10px = 24px*/
-  margin:2rem auto;
+  margin:8rem auto;
   color: #2581D8;
 }
 .dis-Inline{
