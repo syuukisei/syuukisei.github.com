@@ -31,6 +31,9 @@ a,a:visited {
     text-decoration:none; 
     color:#2581D8;
 }
+a:hover {
+    color:#21ff1f;
+}
 
 
 h1 {
