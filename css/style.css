@@ -11,6 +11,7 @@ body {
   color: #2581D8;
 }
 .dis-Inline{
+    text-align:right;    
     display:inline;
 }
 .float-R{
@@ -18,7 +19,8 @@ body {
     background-color: #2581D8;
     font-size:3.5rem;
     margin:2rem;
-    float:right;    
+    padding:1.5rem;
+    text-align:left;    
 }
 
 
