@@ -1,13 +1,14 @@
 
 html {
-	user-select:none;
-	font-family: 'Slabo 27px', serif; 'Arima Madurai', cursive;
+	
+	font-family: 'Slabo 27px', serif; 'Arima Madurai';
 	box-sizing: border-box;
 	height: 100%;
 	width:  100%;
 	font-size: 62.5%;
 }
 body {
+	user-select:none;
 	color: #2581D8;
 	/*font-size: 1.4rem;*/
 	/*1.4 × 10px = 14px
@@ -40,7 +41,7 @@ img {
 	border-radius:10rem;
 }
 .inline {
-	transition:width 0.1s;
+	transition:0.1s;
 	width: 14rem;
 	/*margin:3rem;*/
 	cursor:pointer;
