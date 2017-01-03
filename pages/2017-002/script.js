@@ -72,5 +72,5 @@ function _bu() {
 	}
 }
 function refresh(){
-	window.location.href='http://www.w3school.com.cn/tags/att_a_href.asp';
+	window.location.href='https://syuukisei17.github.io/pages/2017-002.html';
 }
