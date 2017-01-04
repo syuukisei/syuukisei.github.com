@@ -1,0 +1,66 @@
+<html>
+  <head>
+	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+	<link rel="stylesheet" href="https://syuukisei17.github.io/css/style.css" media="screen"/>
+	<!-- <link rel="stylesheet" href="https://raw.githubusercontent.com/syuukisei17/syuukisei17.github.com/master/css/font-awesome.min.css" media="screen"/> -->
+	<meta charset="utf-8">
+  </head>
+  <body>
+  <h1 class='dis-Inline float-R'><a class='color-White' href="https://syuukisei17.github.io/">返回</a></h1>
+  <h1 class='dis-Inline'>Javascript两种function定义的区别</h1>
+
+	<br><br><br>
+  	<!-- <i class="icon-home icon-4x"></i> -->
+	<p >Javascript有两种常用定义Function的方法<p>
+
+	 <pre class='pre-text'>
+	 function a(){alert("a")}
+
+	 var a = function(){alert("a")}
+	</pre>
+
+	<p>Javascript脚本会优先加载function fn(){}，变量方式声明则按顺序。<p>
+	 <pre class='pre-text'>
+	b();
+	a();
+	<hr>
+	var a = function() {
+   		alert('a');
+	}
+
+	function b() {
+    		alert('b');
+	}
+	<hr>
+	<data-pre>
+	// b
+	// a is not a function
+	</data-pre>
+	</pre>
+	//<p>同时，其中一个是匿名函数<p>
+	<pre class='pre-text'>
+	var a = function() {
+    		alert('a');
+	}
+
+	function b() {
+    		alert('b');
+	}
+	<hr>
+	alert(a.prototype.constructor);
+
+	alert(b.prototype.constructor);
+	<hr>
+	<data-pre>
+	function() {
+    		alert('a');
+	}
+
+	function b() {
+    		alert('b');
+	}
+	</data-pre>
+	</pre>
+  </body>
+</html>
