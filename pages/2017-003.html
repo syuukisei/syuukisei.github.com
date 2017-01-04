@@ -8,59 +8,44 @@
   </head>
   <body>
   <h1 class='dis-Inline float-R'><a class='color-White' href="https://syuukisei17.github.io/">返回</a></h1>
-  <h1 class='dis-Inline'>Javascript两种function定义的区别</h1>
+  <h1 class='dis-Inline'>递增和递减操作符</h1>
 
 	<br><br><br>
   	<!-- <i class="icon-home icon-4x"></i> -->
-	<p >Javascript有两种常用定义Function的方法<p>
+	<p >关于递增和递减操作符的解惑<p>
 
 	 <pre class='pre-text'>
-	 function a(){alert("a")}
-
-	 var a = function(){alert("a")}
+	 var num1 = 2;
+	 var num2 = 20;
+	 var num3 = --num1 + num2;
+	 var num4 = num1 + num2;
+	 <hr>
+	 <data-pre>
+	 num4
+	 >>21
+	 <hr>
+	 num3
+	 >>21
+	</data-pre>
 	</pre>
 
-	<p>Javascript脚本会优先加载function fn(){}，变量方式声明则按顺序。<p>
+	<p>++和--无论在操作数的前还是后，都会使该操作数的值改变<p>
 	 <pre class='pre-text'>
-	b();
-	a();
-	<hr>
-	var a = function() {
-   		alert('a');
-	}
-
-	function b() {
-    		alert('b');
-	}
-	<hr>
-	<data-pre>
-	// b
-	// a is not a function
+	 var num1 = 2;
+	 var num2 = 20;
+	 var num3 = num1-- + num2;
+	 var num4 = num1 + num2;
+	 <hr>
+	 <data-pre>
+	 num4
+	 >>21
+	 <hr>
+	 num3
+	 >>22
 	</data-pre>
 	</pre>
-	//<p>同时，其中一个是匿名函数<p>
-	<pre class='pre-text'>
-	var a = function() {
-    		alert('a');
-	}
-
-	function b() {
-    		alert('b');
-	}
-	<hr>
-	alert(a.prototype.constructor);
-
-	alert(b.prototype.constructor);
-	<hr>
-	<data-pre>
-	function() {
-    		alert('a');
-	}
-
-	function b() {
-    		alert('b');
-	}
-	</data-pre>
-	</pre>
+	 <p>只不过，可以 num1-- 不会在当前的表达式中使用递减后的值，而是引用 num1 的原始值。<p>
+	 <p>可以总结成一句话，递增递减：前变后不变<p>
+	 <p>递增递减，数值肯定变化，不过符号在操作数后面时，不会造成当前数值的变化。<p>
   </body>
 </html>
