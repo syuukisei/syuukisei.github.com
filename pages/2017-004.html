@@ -9,14 +9,9 @@
   <body>
   <h1 class='dis-Inline float-R'><a class='color-White' href="https://syuukisei17.github.io/">返回</a></h1>
   <h1 class='dis-Inline'>算法：Roman Numeral Converter</h1>
-
 	<br><br><br>
-  	
-	<p >Q: 将给定的数字转换成罗马数字。
-	<br>
-	 所有返回的 罗马数字 都应该是大写形式。
-	
-	<p>
+  	<p >Q: 将给定的数字转换成罗马数字。<br>
+	 所有返回的 罗马数字 都应该是大写形式。<p>
 	 <pre class='pre-text'>
 	 function convert(num) {
   	 var nums = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
@@ -33,19 +28,17 @@
     		  num -= value;
   		 }
   	 });
-
   	 return str;
 	 }
-
 	 convert(1000);
-<hr>
-	  <data-pre>
-	  >> MMMMMMMMMCMXCIX
-	  </data-pre>
-
+	 <hr>
+	 <data-pre>
+	 >> MMMMMMMMMCMXCIX
+	 </data-pre>
 	 </pre>
+	  
 	 <p>参考<a  href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">Array.prototype.forEach()</a></p>
-	<pre class='pre-text'>
+	 <pre class='pre-text'>
 	 function convert(num) {
    	 var nums = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
  	 var romans =["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"];
@@ -66,8 +59,8 @@
 	  convert(1234);
 	 <hr>
 	 <data-pre>
-	  >> MCCXXXIV
-	  </data-pre>
+	 >> MCCXXXIV
+	 </data-pre>
  	 </pre>
 	 <p>推酷：<a  href="http://www.tuicool.com/articles/BZJrEbV">Roman Numeral Converter(算法)</a></p>
   </body>
