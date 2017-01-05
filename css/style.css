@@ -64,6 +64,7 @@ p {
 
 
 .pre-text   {
+    font-family:'Arima Madurai', serif; 
     white-space:pre-wrap;
     padding:2rem;
     margin:auto 2rem;
