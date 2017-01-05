@@ -16,17 +16,17 @@
 	<br>
 	 所有返回的 罗马数字 都应该是大写形式。
 	 <br>
-	 如果你被难住了，记得使用 Read-Search-Ask尝试与他人结伴编程、编写你自己的代码。<p>
+	<p>
 	 <pre class='pre-text'>
 	 function convert(num) {
   	 var nums = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
   	 var romans =["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"];
   	 var str = '';
-  	 <data-pre>
+  	 <data-pre><hr>
   	 //给定数字拆分为千位、百位、十位、个位，然后再由大至小依次进行拼接。
  	 //对 nums 的每一项进行遍历，每当传入的 num 大于或等于当前项时，
  	 //将其对应的罗马数字推入之前声明的字符串，并把 num 值减去当前符合条件的数值。
- 	 </data-pre>
+ 	 </data-pre><hr>
   	 nums.forEach(function(value,index,nums){
    		 while(num >= value){
     		  str += romans[index];
@@ -38,7 +38,38 @@
 	 }
 
 	 convert(1000);
+<hr>
 	  <data-pre>
-	 >>MMMMMMMMMCMXCIX
+	  >> MMMMMMMMMCMXCIX
+	  </data-pre>
+
+	 </pre>
+	 <p>参考<a  href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">Array.prototype.forEach()</a></p>
+
+
+	<pre class='pre-text'>
+	 function convert(num) {
+   	 var nums = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
+ 	 var romans =["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"];
+  	 var str = '';<hr>
+  	 <data-pre>
+  	 //改写一下
+ 	 </data-pre>
+ 	 <hr>
+ 	 for (var i=0;i<nums.length;i++){
+ 	 while(num >= nums[i]){
+  	     str += romans[i];
+   	     num -= nums[i];
+   	  }
+ 	  }
+ 	 return str;
+	  }
+	  convert(1234);
+	 <hr>
+	 <data-pre>
+	  >> MCCXXXIV
+	  </data-pre>
+ 	 </pre>
+	 <p>推酷：<a  href="http://www.tuicool.com/articles/BZJrEbV">Roman Numeral Converter(算法)</a></p>
   </body>
 </html>
