@@ -20,6 +20,16 @@ body {
 	padding-top: 1%;
 	/*font-size: 60px;*/
 }
+a,a:visited {
+    text-decoration:none; 
+    color:#2581D8;
+}
+a:hover {
+    color:#21ff1f;
+}
+.color-White{
+    color:#fff;
+    }
 /*p {
 	font-size: 3rem;
 }*/
