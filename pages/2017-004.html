@@ -1,0 +1,44 @@
+<html>
+  <head>
+	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+	<link rel="stylesheet" href="https://syuukisei17.github.io/css/style.css" media="screen"/>
+	<!-- <link rel="stylesheet" href="https://raw.githubusercontent.com/syuukisei17/syuukisei17.github.com/master/css/font-awesome.min.css" media="screen"/> -->
+	<meta charset="utf-8">
+  </head>
+  <body>
+  <h1 class='dis-Inline float-R'><a class='color-White' href="https://syuukisei17.github.io/">返回</a></h1>
+  <h1 class='dis-Inline'>算法：Roman Numeral Converter</h1>
+
+	<br><br><br>
+  	<!-- <i class="icon-home icon-4x"></i> -->
+	<p >Q: 将给定的数字转换成罗马数字。
+	<br>
+	 所有返回的 罗马数字 都应该是大写形式。
+	 <br>
+	 如果你被难住了，记得使用 Read-Search-Ask尝试与他人结伴编程、编写你自己的代码。<p>
+	 <pre class='pre-text'>
+	 function convert(num) {
+  	 var nums = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
+  	 var romans =["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"];
+  	 var str = '';
+  	 <data-pre>
+  	 //给定数字拆分为千位、百位、十位、个位，然后再由大至小依次进行拼接。
+ 	 //对 nums 的每一项进行遍历，每当传入的 num 大于或等于当前项时，
+ 	 //将其对应的罗马数字推入之前声明的字符串，并把 num 值减去当前符合条件的数值。
+ 	 </data-pre>
+  	 nums.forEach(function(value,index,nums){
+   		 while(num >= value){
+    		  str += romans[index];
+    		  num -= value;
+  		 }
+  	 });
+
+  	 return str;
+	 }
+
+	 convert(1000);
+	  <data-pre>
+	 >>MMMMMMMMMCMXCIX
+  </body>
+</html>
