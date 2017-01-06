@@ -65,7 +65,7 @@ data-pre{
 
 @media screen and (max-width: 500px) {
     body {
-  margin:4rem;
+  margin:1rem;
 }
 #headline{
   font-size:4rem;
@@ -77,7 +77,7 @@ data-pre{
 
 @media screen and (min-width: 500px) and (max-width: 799px) {
       body {
-  margin:5rem;
+  margin:2rem;
 }
 #headline{
   font-size:4rem;
@@ -89,7 +89,7 @@ data-pre{
 
 @media screen and (min-width: 800px) and (max-width: 999px) {
       body {
-  margin:6rem;
+  margin:3rem;
 }
 #headline{
   font-size:5rem;
@@ -101,7 +101,7 @@ data-pre{
 
 @media screen and (min-width: 1000px) and (max-width: 1199px) {
       body {
-  margin:7rem;
+  margin:4rem;
 }
 #headline{
   font-size:6rem;
@@ -113,7 +113,7 @@ data-pre{
 
 @media screen and (min-width: 1200px) and (max-width: 1499px) {
     body {
-  margin:8rem;
+  margin:4rem;
 }
 #headline{
   font-size:7rem;
@@ -125,7 +125,7 @@ data-pre{
 
 @media screen and (min-width: 1500px) {
     body {
-  margin:10rem;
+  margin:8rem;
 }
 #headline{
   font-size:8rem;
