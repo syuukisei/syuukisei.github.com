@@ -47,8 +47,8 @@ a:hover {
 
 
 .pre-text   {
-    word-wrap : break-word;//太长的句子换行
-    white-space:pre-wrap;//保留文本格式
+    word-wrap : break-word;/*太长的句子换行*/
+    white-space : pre-wrap;/*保留文本格式*/
     
     font-family:'Arima Madurai', serif;
     
