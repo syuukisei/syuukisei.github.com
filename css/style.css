@@ -5,15 +5,16 @@ html {
     font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/
 }
 body {
-  width: 75%;
+  margin:10rem;
   font-size: 1.4rem;/*1.4 × 10px = 14px
                       2.4 × 10px = 24px*/
-  margin:8rem auto;
   color: #2581D8;
 }
-.headline{
-  font-size:8rem;  
+
+#headline{
+  font-size:8rem;
 }
+
 .articleTitle{
     display:block;
     font-size:2.8rem;
@@ -22,7 +23,7 @@ body {
 
 
 .dis-Inline{
-    text-align:right;    
+    text-align:right;
     display:inline;
 }
 .float-R{
@@ -31,11 +32,11 @@ body {
     font-size:3.5rem;
     margin:1rem;
     padding:1rem;
-    text-align:left;    
+    text-align:left;
 }
 
 a,a:visited {
-    text-decoration:none; 
+    text-decoration:none;
     color:#2581D8;
 }
 a:hover {
@@ -45,33 +46,90 @@ a:hover {
     color:#fff;
     }
 
-
-h1 {
-    font-size:3rem;  
-}
-h2 {
-    font-size:2.8rem;  
-}
-h3 {
-    font-size:2.6rem;  
-}
-p {
-    font-size:2.4rem;  
-}
-
-
-
-
-
 .pre-text   {
-    font-family:'Arima Madurai', serif; 
+    font-family:'Arima Madurai', serif;
     white-space:pre-wrap;
     padding:2rem;
     margin:auto 2rem;
-    font-size:2.5rem; 
+    font-size:2.5rem;
     color:#fff;
-    background-color: #2581D8;   
+    background-color: #2581D8;
 }
 data-pre{
-   color: #21ff1f;   
+   color: #21ff1f;
+}
+
+
+
+@media screen and (max-width: 500px) {
+    body {
+  margin:4rem;
+}
+#headline{
+  font-size:4rem;
+}
+.articleTitle{
+    font-size:2rem;
+}
+}
+
+@media screen and (min-width: 500px) and (max-width: 799px) {
+      body {
+  margin:5rem;
+}
+#headline{
+  font-size:4rem;
+}
+.articleTitle{
+    font-size:2rem;
+}
+}
+
+@media screen and (min-width: 800px) and (max-width: 999px) {
+      body {
+  margin:6rem;
+}
+#headline{
+  font-size:5rem;
+}
+.articleTitle{
+    font-size:2.2rem;
+}
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1199px) {
+      body {
+  margin:7rem;
+}
+#headline{
+  font-size:6rem;
+}
+.articleTitle{
+    font-size:2.5rem;
+}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1499px) {
+    body {
+  margin:8rem;
+}
+#headline{
+  font-size:7rem;
+}
+.articleTitle{
+    font-size:2.8rem;
+}
+}
+
+@media screen and (min-width: 1500px) {
+    body {
+  margin:10rem;
+}
+#headline{
+  font-size:8rem;
+}
+.articleTitle{
+    font-size:3rem;
+}
+
 }
