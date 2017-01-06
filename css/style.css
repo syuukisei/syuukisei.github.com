@@ -26,7 +26,7 @@ p {
 
 .dis-Inline{
     text-align:right;
-    display:inline;
+    display:block;
 }
 .float-R{
     color:#fff;
@@ -44,9 +44,7 @@ a,a:visited {
 a:hover {
     color:#21ff1f;
 }
-.color-White{
-    color:#fff;
-    }
+
 
 .pre-text   {
     font-family:'Arima Madurai', serif;
@@ -65,7 +63,7 @@ data-pre{
 
 @media screen and (max-width: 500px) {
     body {
-  margin:1rem;
+  margin:2rem;
 }
 #headline{
   font-size:4rem;
