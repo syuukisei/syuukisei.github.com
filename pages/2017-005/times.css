@@ -62,6 +62,7 @@ body{
 	color: #ff5300;
 }
 #cat {
+	display: block;
 	color: #ff5300;
 }
 #cat:hover {
