@@ -1,10 +1,10 @@
 @media screen and (max-width: 500px) {
 p, span{
-	padding: 0.5rem;
-	font-size: 3rem;
+	padding: 0.2rem;
+	font-size: 3.5rem;
 }
-#day{
-	font-size: 0.5rem;
+#day,#cat{
+	font-size: 2rem;
 }
 }
 
@@ -13,8 +13,8 @@ p, span{
 	padding: 0.8rem;
 	font-size: 4rem;
 }
-#day{
-	font-size: 1rem;
+#day,#cat{
+	font-size: 2rem;
 }
 }
 @media screen and (min-width: 800px) and (max-width: 999px) {
@@ -22,8 +22,8 @@ p, span{
 	padding: 1rem;
 	font-size: 7rem;
 }
-#day{
-	font-size: 2.5rem;
+#day,#cat{
+	font-size: 3.5rem;
 }
 }
 @media screen and (min-width: 1000px) and (max-width: 1199px) {
@@ -31,7 +31,7 @@ p, span{
 	padding: 1.3rem;
 	font-size: 10rem;
 }
-#day{
+#day,#cat{
 	font-size: 5rem;
 }
 
@@ -43,7 +43,7 @@ p, span{
 	padding: 1.5rem;
 	font-size: 12rem;
 }
-#day{
+#day,#cat{
 	font-size: 6rem;
 }
 
@@ -53,12 +53,20 @@ p, span{
 
 
 body{
+	user-select:none;
 	font-size: 62.5%;
 	widows: 100%;
 	height: 100%;
 	font-family:"Tahoma","Helvetica","Arial",serif;
 	background-image: url(pix.gif);
 	color: #ff5300;
+}
+#cat {
+	color: #ff5300;
+}
+#cat:hover {
+	color: #fff;
+	text-shadow:0 0 2rem #ff5300,-0 -0 1rem #ff5300;
 }
 #time{
 	width: 99%;
