@@ -1,0 +1,56 @@
+
+
+body{
+	font-family:"Tahoma","Helvetica","Arial",serif;
+		background-image: url(pix.gif);
+	color: #ff5300;
+	padding: 0 -50%;
+}
+#time{
+
+	/*position: absolute;*/
+	width: 99%;
+	 margin-top: 20%;
+	margin-left: auto; 
+	margin-right: auto; 
+	/*display: inline;*/
+	font-size: 800%;
+	text-align:center;
+	
+}
+#h,#m{	
+
+	height: 50%;
+	width:50%;
+	 margin: 0 -2%;
+	 display: inline;
+	 text-align:center;
+	
+}
+.danwei{
+	font-size: 50%;
+}
+#right{
+	 margin: 0 -2%;
+	 display: inline;
+
+}
+
+#s{
+
+	display: inline;
+}
+
+
+
+#day{	
+	 margin: 0 -2%;
+	font-size: 20%;
+	display: inline;
+}
+
+p:hover{
+	color: #fff;
+	text-shadow:0 0 0.2em #ff5300,-0 -0 0.2em #ff5300;
+  
+}
