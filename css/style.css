@@ -73,6 +73,12 @@ data-pre{
 .articleTitle{
     font-size:2rem;
 }
+.p{
+    font-size:2rem;
+}
+.pre-text{
+    font-size:1.5rem;
+}    
 }
 
 @media screen and (min-width: 500px) and (max-width: 799px) {
@@ -85,6 +91,12 @@ data-pre{
 .articleTitle{
     font-size:2rem;
 }
+.p{
+    font-size:2.1rem;
+}
+.pre-text{
+    font-size:1.7rem;
+} 
 }
 
 @media screen and (min-width: 800px) and (max-width: 999px) {
@@ -97,6 +109,12 @@ data-pre{
 .articleTitle{
     font-size:2.2rem;
 }
+.p{
+    font-size:2.2rem;
+}
+.pre-text{
+    font-size:1.9rem;
+} 
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1199px) {
@@ -109,6 +127,12 @@ data-pre{
 .articleTitle{
     font-size:2.5rem;
 }
+.p{
+    font-size:2.3rem;
+}
+.pre-text{
+    font-size:2.1rem;
+} 
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1499px) {
@@ -121,6 +145,12 @@ data-pre{
 .articleTitle{
     font-size:2.8rem;
 }
+.p{
+    font-size:2.5rem;
+}
+.pre-text{
+    font-size:2.3rem;
+} 
 }
 
 @media screen and (min-width: 1500px) {
@@ -133,5 +163,10 @@ data-pre{
 .articleTitle{
     font-size:3rem;
 }
-
+.p{
+    font-size:2.5rem;
+}
+.pre-text{
+    font-size:2.5rem;
+} 
 }
