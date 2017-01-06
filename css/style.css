@@ -25,15 +25,15 @@ p {
 
 
 .dis-Inline{
-    text-align:right;
-    display:block;
+    text-align:left;
+    display:inline;
 }
 .float-R{
     color:#fff;
     background-color: #2581D8;
-    font-size:3.5rem;
-    margin:1rem;
-    padding:1rem;
+    font-size:2rem;
+    margin:0.5rem;
+    padding:0.5rem;
     text-align:left;
 }
 
