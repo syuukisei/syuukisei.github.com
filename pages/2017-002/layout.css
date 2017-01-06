@@ -81,9 +81,13 @@ img {
 	font-size: 3rem;
 	color:#00d300;
 }
+#total {
+	padding-bottom:12rem;
+}
+
 @media screen and (max-width: 500px) {
     body {
-  margin:1rem;
+  margin:1rem  auto;
 }
 #cat{
 	font-size:7rem;
@@ -104,7 +108,7 @@ img {
 
 @media screen and (min-width: 500px) and (max-width: 799px) {
       body {
-  margin:2rem;
+  margin:2rem  auto;
 }
 #cat{
 	font-size:8rem;
@@ -125,7 +129,7 @@ img {
 
 @media screen and (min-width: 800px) and (max-width: 999px) {
       body {
-  margin:3rem;
+  margin:3rem  auto;
 }
 #cat{
 	font-size:9rem;
@@ -147,7 +151,7 @@ img {
 
 @media screen and (min-width: 1000px) and (max-width: 1199px) {
       body {
-  margin:4rem;
+  margin:4rem  auto;
 }
 #cat{
 	font-size:10rem;
@@ -168,7 +172,7 @@ img {
 
 @media screen and (min-width: 1200px) and (max-width: 1499px) {
     body {
-  margin:4rem;
+  margin:4rem  auto;
 }
 #cat{
 	font-size:11rem;
@@ -189,7 +193,7 @@ img {
 
 @media screen and (min-width: 1500px) {
     body {
-  margin:8rem;
+  margin:8rem  auto;
 }
 #cat{
 	font-size:12rem;
