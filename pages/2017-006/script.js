@@ -21,7 +21,7 @@ xmlhttp.send();
 // window.
 // setTimeout(a,3000)
 var a = (function (){
-	setTimeout(weather,500)
+	setTimeout(weather,1000)
 	console.log('2017')
 })();
 // var b = (function (){
