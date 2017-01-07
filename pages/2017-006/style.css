@@ -1,0 +1,35 @@
+html {
+	font-family:  'Arima Madurai';
+	font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/
+	/*font-size:*/
+	width: 100%;
+	height: 100%;
+}
+body {
+	color: #2581D8;
+	/*border: 1rem;*/
+	 width: 90%;
+	 height: 90%;
+	 font-size: 1.4rem;/*1.4 × 10px = 14px
+                      2.4 × 10px = 24px*/
+	 margin: 5rem;
+	 margin-left: auto;
+	 margin-right: auto;
+	 /*background: red;*/
+
+}
+#div1 {
+
+	float: left;
+	width: 50%;
+}
+#div2 {
+	overflow: auto;
+	 width: 50%;
+}
+#suggestion{
+	 width: 100%;
+}
+p {
+	font-size: 3rem;
+}
