@@ -1,4 +1,5 @@
 html {
+  box-sizing: border-box;
   font-size: 10px;
   background-color:#000;
   background-size: cover;
@@ -47,4 +48,34 @@ kbd {
   text-transform: uppercase;
   letter-spacing: 1px;
   color:#ffc600;
+}
+/*——————媒体查询——————*/
+@media screen and (max-width: 500px) {
+body {
+      margin-top: 20px;
+      margin-left: 20px;
+}
+.keys {
+    width: 100%;
+     display: inline;
+}
+.key {
+    display:inline-block;
+    border: 1px solid white;
+}
+}
+
+@media screen and (min-width: 500px) and (max-width: 799px) {
+body {
+      margin-top: 20px;
+      margin-left: 20px;
+}
+.keys {
+    width: 100%;
+     display: inline;
+}
+.key {
+    display:inline-block;
+    border: 1px solid white;
+}
 }
