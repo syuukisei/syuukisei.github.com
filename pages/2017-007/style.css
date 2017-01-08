@@ -10,6 +10,7 @@ body,html {
   font-family: sans-serif;
 }
 body {
+  background-image: url(https://syuukisei17.github.io/pages/2017-005/pix.gif);
   user-select:none;
   -webkit-user-select:none;
   -moz-user-select:none;
