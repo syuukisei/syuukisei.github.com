@@ -149,10 +149,11 @@ function Check2(){
 	}
 }
 var Check3 = Check2();
+function CheckInterval(){
 setTimeout(Check3, 2000);
 setTimeout(Check3, 4000);
 setTimeout(Check3, 6000);
-
+}
 
 // setTimeout(Weather.fn, 2000);
 // setTimeout(Weather.fn, 3000);
@@ -204,5 +205,6 @@ document.getElementById('source').innerHTML=city.source;
 console.log("GET ALL")
 }
 window.onload = Weather.fn;
+window.onload = CheckInterval;
 </script>
 </html>
