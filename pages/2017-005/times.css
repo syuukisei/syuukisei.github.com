@@ -68,6 +68,10 @@ body{
 p {
 	display:inline;
 }
+a,a:visited {
+	text-decoration:none;
+	color: #fff;}
+a:hover,a:active {color: #fff;}
 #cat {
 	display: block;
 	color: #ff5300;
