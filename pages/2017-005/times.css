@@ -10,6 +10,7 @@ p, span{
 
 @media screen and (min-width: 500px) and (max-width: 799px) {
 p, span{
+	display:inline;
 	padding: 0.8rem;
 	font-size: 4rem;
 }
@@ -19,6 +20,7 @@ p, span{
 }
 @media screen and (min-width: 800px) and (max-width: 999px) {
 p, span{
+	display:inline;
 	padding: 1rem;
 	font-size: 7rem;
 }
@@ -28,6 +30,7 @@ p, span{
 }
 @media screen and (min-width: 1000px) and (max-width: 1199px) {
 p, span{
+	display:inline;
 	padding: 1.3rem;
 	font-size: 10rem;
 }
@@ -40,6 +43,7 @@ p, span{
 @media screen and (min-width: 1200px) {
 
 p, span{
+	display:inline;
 	padding: 1.5rem;
 	font-size: 12rem;
 }
@@ -61,6 +65,9 @@ body{
 	background-image: url(pix.gif);
 	color: #ff5300;
 }
+p {
+	display:inline;
+}
 #cat {
 	display: block;
 	color: #ff5300;
@@ -80,25 +87,25 @@ body{
 	height: 50%;
 	width:50%;
 	 margin: 0 -2%;
-	 display: inline;
+	// display: inline;
 	 text-align:center;
 }
 #right{
 	 margin: 0 -2%;
-	 display: inline;
+	// display: inline;
 }
 #s{
-	display: inline;
+	//display: inline;
 }
 #day{
 	 margin: 0 -2%;
-	display: inline;
+	//display: inline;
 }
-p:hover,span:hover{
+p:hover,span:hover,a:hover{
 	color: #fff;
 	text-shadow:0 0 0.2em #ff5300,-0 -0 0.2em #ff5300;
 }
-p:active,span:hover{
+p:active,span:hover,a:hover{
 	color: #fff;
 	text-shadow:0 0 0.2em #ff5300,-0 -0 0.2em #ff5300;
 }
