@@ -67,7 +67,7 @@ body{
 }
 #cat:hover {
 	color: #fff;
-	text-shadow:0 0 2rem #ff5300,-0 -0 1rem #ff5300;
+	text-shadow:0 0 0.2rem #ff5300,-0 -0 1rem #ff5300;
 }
 #time{
 	width: 99%;
