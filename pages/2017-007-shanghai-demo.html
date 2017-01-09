@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@ html {
 	height: 100%;
 }
 body {
-	background:url(https://syuukisei17.github.io/pages/2017-007/map.png) no-repeat center 50%;/*横向居中，百分比为x和y轴的位置*/
+	background:url(map.png) no-repeat center 50%;/*横向居中，百分比为x和y轴的位置*/
 	background-size: contain;
 	color: #2581D8;
 	box-sizing: border-box;
@@ -31,11 +32,6 @@ p{
 }
 a:visited {color: #2581D8;}
 a:hover,a:active {color: #21ff1f;}
-a:-webkit-any-link {
-    color: -webkit-link;
-    text-decoration: underline;
-    cursor: auto;
-}	
 p {
 	font-size: 2rem;
 }
@@ -103,7 +99,7 @@ p {
 	<link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
 	<!-- <script type="text/javascript" src="script.js" charset="utf-8"></script> -->
 	<meta charset="UTF-8">
-	<title>Shanghai / Demo by syuu</title>
+	<title>Document</title>
 </head>
 <body>
 <div class='cow-100'>
@@ -116,6 +112,7 @@ p {
 <p class='little'>健康影响情况：<span id='suggestion' ></p>
 <p class='little'>信息来源：<span id='source' ></p>
 <p class='little'>空气质量标准：<span><a href="http://aqicn.org/scale/cn/">http://aqicn.org/scale/cn/</a></p>
+<br>
 </body>
 <script>
 this.Weather = {};
@@ -133,12 +130,22 @@ Weather.fn = function (){
 	objA = JSON.parse(this.responseText);//解析和赋值
 	}
 	XML.send();//传递数据
-	setTimeout(Weather.show, 800)
+	setTimeout(Weather.show, 1000)
+	check = false;
+	console.log("GET1")
+	console.log(check);
 }
-setTimeout(Weather.fn, 400);
-setTimeout(Weather.fn, 1000);
-setTimeout(Weather.fn, 2000);
-setTimeout(Weather.fn, 5000);
+setTimeout(Weather.fn, 100);
+function Check(){
+	if(check==true){
+		setTimeout(Weather.fn, 1000);
+	}
+}
+setTimeout(Check, 1100);
+
+
+// setTimeout(Weather.fn, 2000);
+// setTimeout(Weather.fn, 3000);
 Weather.show = function(){
 	if(!objA.status.length){return false}
 	if(objA.status.length==5){
@@ -188,7 +195,7 @@ document.getElementById('aqi').innerHTML=city.aqi;
 document.getElementById('pm25').innerHTML=city.pm25;
 document.getElementById('pm10').innerHTML=city.pm10;
 document.getElementById('source').innerHTML=city.source;
-console.log("GET")
+console.log("GET2")
 }
 </script>
 </html>
