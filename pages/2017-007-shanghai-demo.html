@@ -21,14 +21,6 @@ body {
                       2.4 × 10px = 24px*/
 	 margin: 8rem auto;
 }
-#syuu_logo{
-	/*个人logo的图片位置，显示在屏幕的外侧*/
-	position: absolute;
-	visibility: hidden;
-	height: 1px;
-	left:0px;
-  	top:0px;
-}
 #city {
 	font-size: 5rem;
 }
@@ -101,7 +93,8 @@ p {
 }
 
 </style>
-	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+
+	<meta name="viewport" data-line-img="https://syuukisei17.github.io/img/logo.png" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 	<!-- <link rel="stylesheet" href="style.css" media="screen"/> -->
 	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
@@ -110,10 +103,7 @@ p {
 	<title>上海空气质量指数 / demo by syuu</title>
 </head>
 <body>
-<img src="https://syuukisei17.github.io/img/logo.gif" alt="logo" id="syuu_logo">
-<div class='cow-100'>
 <p><span id='city'></span></p>
-</div>
 <p class='little'>空气质量：<span id='qlt' ></span></p>
 <p class='little'>空气质量指数：<span id='aqi' ></span></p>
 <p class='little'>PM2.5：<span id='pm25' ></span></p>
