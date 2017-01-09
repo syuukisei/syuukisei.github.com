@@ -172,7 +172,6 @@ Weather.show = function(){
 	document.getElementById('qlt').innerHTML="优秀/Good";
 	document.getElementById('suggestion').innerHTML="空气质量令人满意，基本无空气污染";
 	qlt.style.backgroundColor="#009966"
-	qlt.style.padding ="0 0.5rem";
 	}
 	if(city.aqi<101&&city.aqi>50){
 	document.getElementById('qlt').innerHTML="良好/Moderate";
@@ -201,6 +200,7 @@ Weather.show = function(){
 	qlt.style.backgroundColor="#7E0023"
 	}
 	qlt.style.color="#fff"//字体颜色
+	qlt.style.padding ="0 0.5rem";//背景的间距
 document.getElementById('city').innerHTML=city.name;
 document.getElementById('aqi').innerHTML=city.aqi;
 document.getElementById('pm25').innerHTML=city.pm25;
