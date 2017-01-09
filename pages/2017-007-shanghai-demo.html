@@ -24,8 +24,10 @@ body {
 #syuu_logo{
 	/*个人logo的图片位置，显示在屏幕的外侧*/
 	position: absolute;
-	left:-10000px;
-  	top:-15000px;
+	visibility: hidden;
+	height: 1px;
+	left:0px;
+  	top:0px;
 }
 #city {
 	font-size: 5rem;
@@ -108,7 +110,7 @@ p {
 	<title>上海空气质量指数 / demo by syuu</title>
 </head>
 <body>
-<img src="https://syuukisei17.github.io/img/logo.png" alt="logo" id="syuu_logo">
+<img src="https://syuukisei17.github.io/img/logo.gif" alt="logo" id="syuu_logo">
 <div class='cow-100'>
 <p><span id='city'></span></p>
 </div>
@@ -148,17 +150,27 @@ function Check(){
 		setTimeout(Weather.fn, 1000);
 	}
 }
+function Check2(){
+	if(objA.status.length==5){
+		console.log("TypeError")
+		setTimeout(Weather.fn, 100);
+	}
+}
 setTimeout(Check, 1100);
+// setTimeout(Check2, 1000);
+setTimeout(Check2, 3000);
+setTimeout(Check2, 5000);
+setTimeout(Check2, 10000);
 
 
 // setTimeout(Weather.fn, 2000);
 // setTimeout(Weather.fn, 3000);
 Weather.show = function(){
-	if(!objA.status.length){return false}
-	if(objA.status.length==5){
-		console.log("服务器文件有误");
-		return false;
-	}
+	// if(!objA.status.length){return false}
+	// if(objA.status.length==5){
+	// 	console.log("服务器文件有误");
+	// 	return false;
+	// }
 	city.name = objA.data.city.name;
 	city.aqi = objA.data.aqi;
 	city.pm10 = objA.data.iaqi.pm10.v;
