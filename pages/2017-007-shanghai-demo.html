@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+html {
+	font-family:  'Arima Madurai';
+	font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/
+	width: 100%;
+	height: 100%;
+}
+body {
+	background:url(map.png) no-repeat center 50%;/*横向居中，百分比为x和y轴的位置*/
+	background-size: contain;
+	color: #2581D8;
+	box-sizing: border-box;
+	/*border: 1rem;*/
+	 width: 90%;
+	 height: 90%;
+	 font-size: 1.4rem;/*1.4 × 10px = 14px
+                      2.4 × 10px = 24px*/
+	 margin: 8rem auto;
+}
+#city {
+	font-size: 5rem;
+}
+p{
+	text-align: center;
+	border: 1px solid;
+	border-radius: 1rem;
+	margin:2rem auto;
+}
+a:visited {color: #2581D8;}
+a:hover,a:active {color: #21ff1f;}
+p {
+	font-size: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+    body {
+  	margin: 0.5rem auto;
+	}
+}
+
+@media screen and (min-width: 500px) and (max-width: 799px) {
+      body {
+  	margin: 1rem auto;
+	}
+	p{
+		font-size: 2.2rem;
+		margin: 1rem auto;
+	}
+}
+
+@media screen and (min-width: 800px) and (max-width: 999px) {
+      body {
+  	margin: 2rem auto;
+	}
+	p{
+		font-size: 2.4rem;
+		margin: 1.5rem auto;
+	}
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1199px) {
+      body {
+  	margin: 4rem auto;
+	}
+	p{
+		font-size: 2.6rem;
+		margin: 2rem auto;
+	}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1499px) {
+    body {
+  	margin: 6rem auto;
+	}
+	p{
+		font-size: 2.8rem;
+		margin: 2.5rem auto;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+    body {
+  	margin: 8rem auto;
+	}
+	p{
+		font-size: 3rem;
+		margin: 4rem auto;
+	}
+}
+
+</style>
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<!-- <link rel="stylesheet" href="style.css" media="screen"/> -->
+	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+	<!-- <script type="text/javascript" src="script.js" charset="utf-8"></script> -->
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div class='cow-100'>
+<p><span id='city'></span></p>
+</div>
+<p class='little'>空气质量：<span id='qlt' ></span></p>
+<p class='little'>空气质量指数：<span id='aqi' ></span></p>
+<p class='little'>PM2.5：<span id='pm25' ></span></p>
+<p class='little'>PM10：<span id='pm10' ></span></p>
+<p class='little'>健康影响情况：<span id='suggestion' ></p>
+<p class='little'>信息来源：<span id='source' ></p>
+<p class='little'>空气质量标准：<span><a href="http://aqicn.org/scale/cn/">http://aqicn.org/scale/cn/</a></p>
+</body>
+<script>
+this.Weather = {};
+Weather.show = {};
+var objA = {};
+var city = {};
+var check = true;
+Weather.fn = function (){
+	var Shenzhen ="https://api.waqi.info/feed/shanghai/?token=demo";//测试
+	// var Shenzhen ="https://api.waqi.info/feed/shenzhen/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
+	var XML = new XMLHttpRequest();//请求服务器文件
+	XML.open('GET',Shenzhen,true);//请求服务器文件
+	// alert(XML);//检测文件是否获取成功
+	XML.onload = function () {
+	objA = JSON.parse(this.responseText);//解析和赋值
+	}
+	XML.send();//传递数据
+	setTimeout(Weather.show, 800)
+}
+setTimeout(Weather.fn, 400);
+setTimeout(Weather.fn, 1000);
+setTimeout(Weather.fn, 2000);
+setTimeout(Weather.fn, 5000);
+Weather.show = function(){
+	if(!objA.status.length){return false}
+	if(objA.status.length==5){
+		console.log("服务器文件有误");
+		return false;
+	}
+	city.name = objA.data.city.name;
+	city.aqi = objA.data.aqi;
+	city.pm10 = objA.data.iaqi.pm10.v;
+	city.pm25 = objA.data.iaqi.pm25.v;
+	city.source = objA.data.attributions[0].name;
+// 对应的空气质量等级
+	if(city.aqi<51){
+	document.getElementById('qlt').innerHTML="优秀/Good";
+	document.getElementById('suggestion').innerHTML="空气质量令人满意，基本无空气污染";
+	qlt.style.backgroundColor="#009966"
+	}
+	if(city.aqi<101&&city.aqi>50){
+	document.getElementById('qlt').innerHTML="良好/Moderate";
+	document.getElementById('suggestion').innerHTML="空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响";
+	qlt.style.backgroundColor="#FFDE33"
+	}
+	if(city.aqi<151&&city.aqi>100){
+	document.getElementById('qlt').innerHTML="部分人群敏感/Unhealthy for Sensitive Groups";
+	document.getElementById('suggestion').innerHTML="易感人群症状有轻度加剧，健康人群出现刺激症状";
+	qlt.style.backgroundColor="#FF9933"
+	}
+	if(city.aqi<201&&city.aqi>150){
+	document.getElementById('qlt').innerHTML="轻度污染/Unhealthy";
+	document.getElementById('suggestion').innerHTML="进一步加剧易感人群症状，可能对健康人群心脏、呼吸系统有影响";
+	qlt.style.backgroundColor="#CC0033"
+
+	}
+	if(city.aqi<301&&city.aqi>200){
+	document.getElementById('qlt').innerHTML="严重污染/Very Unhealthy";
+	document.getElementById('suggestion').innerHTML="心脏病和肺病患者症状显著加剧，运动耐受力降低，健康人群普遍出现症状";
+	qlt.style.backgroundColor="#660099"
+	}
+	if(city.aqi>300){
+	document.getElementById('qlt').innerHTML="危险/Hazardous";
+	document.getElementById('suggestion').innerHTML="健康人群运动耐受力降低，有明显强烈症状，提前出现某些疾病";
+	qlt.style.backgroundColor="#7E0023"
+	}
+	qlt.style.color="#fff"//字体颜色
+document.getElementById('city').innerHTML=city.name;
+document.getElementById('aqi').innerHTML=city.aqi;
+document.getElementById('pm25').innerHTML=city.pm25;
+document.getElementById('pm10').innerHTML=city.pm10;
+document.getElementById('source').innerHTML=city.source;
+console.log("GET")
+}
+</script>
+</html>
