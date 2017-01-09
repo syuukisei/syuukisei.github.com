@@ -10,7 +10,7 @@ html {
 	height: 100%;
 }
 body {
-	background:url(map.png) no-repeat center 50%;/*横向居中，百分比为x和y轴的位置*/
+	background:url(https://syuukisei17.github.io/pages/2017-007/map.gif) no-repeat center 50%;/*横向居中，百分比为x和y轴的位置*/
 	background-size: contain;
 	color: #2581D8;
 	box-sizing: border-box;
@@ -99,7 +99,7 @@ p {
 	<link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
 	<!-- <script type="text/javascript" src="script.js" charset="utf-8"></script> -->
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>上海空气质量指数 / demo by syuu</title>
 </head>
 <body>
 <div class='cow-100'>
@@ -119,25 +119,25 @@ this.Weather = {};
 Weather.show = {};
 var objA = {};
 var city = {};
-var check = true;
+var check_need = true;
 Weather.fn = function (){
 	var Shenzhen ="https://api.waqi.info/feed/shanghai/?token=demo";//测试
 	// var Shenzhen ="https://api.waqi.info/feed/shenzhen/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
 	var XML = new XMLHttpRequest();//请求服务器文件
 	XML.open('GET',Shenzhen,true);//请求服务器文件
-	// alert(XML);//检测文件是否获取成功
+	// console.log(XML);//检测文件是否获取成功
 	XML.onload = function () {
 	objA = JSON.parse(this.responseText);//解析和赋值
 	}
 	XML.send();//传递数据
 	setTimeout(Weather.show, 1000)
-	check = false;
+	check_need = false;
 	console.log("GET1")
-	console.log(check);
+	console.log(check_need);
 }
 setTimeout(Weather.fn, 100);
 function Check(){
-	if(check==true){
+	if(check_need==true){
 		setTimeout(Weather.fn, 1000);
 	}
 }
