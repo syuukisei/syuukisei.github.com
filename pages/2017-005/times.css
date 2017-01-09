@@ -68,10 +68,12 @@ body{
 p {
 	display:inline;
 }
-a,a:visited {
-	text-decoration:none;
-	color: #fff;}
-a:hover,a:active {color: #fff;}
+a {
+	color: #ff5300;}
+
+a:hover,a:active,a:visited {
+	color: #fff;
+	text-decoration:none;}
 #cat {
 	display: block;
 	color: #ff5300;
@@ -96,7 +98,7 @@ a:hover,a:active {color: #fff;}
 }
 #right{
 	 margin: 0 -2%;
-	// display: inline;
+	 display: inline;
 }
 #s{
 	//display: inline;
