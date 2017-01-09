@@ -93,7 +93,6 @@ p {
 }
 
 </style>
-
 	<meta name="viewport" data-line-img="https://syuukisei17.github.io/img/logo.png" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 	<!-- <link rel="stylesheet" href="style.css" media="screen"/> -->
 	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
@@ -119,7 +118,7 @@ this.Weather = {};
 Weather.show = {};
 var objA = {};
 var city = {};
-var check_need = true;
+var check_need = false;
 Weather.fn = function (){
 	var Shenzhen ="https://api.waqi.info/feed/shanghai/?token=demo";//测试
 	// var Shenzhen ="https://api.waqi.info/feed/shenzhen/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
@@ -131,37 +130,33 @@ Weather.fn = function (){
 	}
 	XML.send();//传递数据
 	setTimeout(Weather.show, 1000)
-	check_need = false;
+	check_need = true;
 	console.log("GET1")
 	console.log(check_need);
 }
-setTimeout(Weather.fn, 100);
-function Check(){
-	if(check_need==true){
-		setTimeout(Weather.fn, 1000);
-	}
-}
 function Check2(){
-	if(objA.status.length==5){
+	var a = 0;
+	return function () {
+		if(!check_need){
 		console.log("TypeError")
 		setTimeout(Weather.fn, 100);
+		a++;
+		console.log("Check Clean "+a)
+		}else{
+			Weather.show();
+		}
+
 	}
 }
-setTimeout(Check, 1100);
-// setTimeout(Check2, 1000);
-setTimeout(Check2, 3000);
-setTimeout(Check2, 5000);
-setTimeout(Check2, 10000);
+var Check3 = Check2();
+setTimeout(Check3, 2000);
+setTimeout(Check3, 4000);
+setTimeout(Check3, 6000);
 
 
 // setTimeout(Weather.fn, 2000);
 // setTimeout(Weather.fn, 3000);
 Weather.show = function(){
-	// if(!objA.status.length){return false}
-	// if(objA.status.length==5){
-	// 	console.log("服务器文件有误");
-	// 	return false;
-	// }
 	city.name = objA.data.city.name;
 	city.aqi = objA.data.aqi;
 	city.pm10 = objA.data.iaqi.pm10.v;
@@ -200,13 +195,14 @@ Weather.show = function(){
 	qlt.style.backgroundColor="#7E0023"
 	}
 	qlt.style.color="#fff"//字体颜色
-	qlt.style.padding ="0 0.5rem";//背景的间距
+	qlt.style.padding ="0 0.5rem";
 document.getElementById('city').innerHTML=city.name;
 document.getElementById('aqi').innerHTML=city.aqi;
 document.getElementById('pm25').innerHTML=city.pm25;
 document.getElementById('pm10').innerHTML=city.pm10;
 document.getElementById('source').innerHTML=city.source;
-console.log("GET2")
+console.log("GET ALL")
 }
+window.onload = Weather.fn;
 </script>
 </html>
