@@ -1,30 +1,265 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-	<link rel="stylesheet" href="https://syuukisei17.github.io/pages/2017-006/style.css" media="screen"/>
+<style>
+html {
+	font-family:  'Arima Madurai';
+	font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/
+	width: 100%;
+	height: 100%;
+}
+body {
+	background:url(https://syuukisei17.github.io/pages/2017-007/map.gif) no-repeat center 50%;/*横向居中，百分比为x和y轴的位置*/
+	background-size: contain;
+	color: #2581D8;
+	box-sizing: border-box;
+	/*border: 1rem;*/
+	 width: 90%;
+	 height: 90%;
+	 font-size: 1.4rem;/*1.4 × 10px = 14px
+                      2.4 × 10px = 24px*/
+	 margin: 8rem auto;
+}
+#city {
+	margin-top: -2rem;
+	display: block;
+	font-size: 5rem;
+}
+.the_City{
+	border-radius: 1rem;
+	width: 100%;
+	display: block;
+	background-color:#2581D8;
+	color:#fff;
+	margin:1rem 0;
+	/*padding: 0 1rem;*/
+}
+.left , .right{
+	margin-right: auto;
+	font-size: 2rem;
+	text-align: center;
+	display: inline-block;
+	width: 45%;
+}
+.left{
+	overflow: auto;
+}
+.right{
+	float: right;
+}
+p{
+	text-align: center;
+	border: 1px solid;
+	border-radius: 1rem;
+	margin:2rem auto;
+}
+a,a:visited {
+	text-decoration:none;
+	color: #2581D8;}
+a:hover,a:active {color: #21ff1f;}
+p {
+	font-size: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+    body {
+  	margin: 0.5rem auto;
+	}
+}
+
+@media screen and (min-width: 500px) and (max-width: 799px) {
+      body {
+  	margin: 1rem auto;
+	}
+	p{
+		font-size: 2.2rem;
+		margin: 1rem auto;
+	}
+}
+
+@media screen and (min-width: 800px) and (max-width: 999px) {
+      body {
+  	margin: 2rem auto;
+	}
+	p,.left , .right{
+		font-size: 2.4rem;
+		margin: 1.5rem auto;
+	}
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1199px) {
+      body {
+  	margin: 4rem auto;
+	}
+	p,.left , .right{
+		font-size: 2.6rem;
+		margin: 2rem auto;
+	}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1499px) {
+    body {
+  	margin: 6rem auto;
+	}
+	p,.left , .right{
+		font-size: 2.8rem;
+		margin: 2.5rem auto;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+    body {
+  	margin: 8rem auto;
+	}
+	p,.left , .right{
+		font-size: 3rem;
+		margin: 4rem auto;
+	}
+}
+
+</style>
+	<meta name="viewport" data-line-img="https://syuukisei17.github.io/img/logo.png" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<!-- <link rel="stylesheet" href="style.css" media="screen"/> -->
 	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
-	<script type="text/javascript" src="https://syuukisei17.github.io/pages/2017-006/script.js" charset="utf-8"></script>
+	<!-- <script type="text/javascript" src="script.js" charset="utf-8"></script> -->
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>空气质量指数</title>
 </head>
 <body>
-<div id='div1'>
-<p>国家：<span id='cnty' onclick='weather()'></span></p>
-<p>城市：<span id='city' ></span></p>
-<p>空气质量：<span id='qlt' ></span></p>
-<p>空气质量指数：<span id='aqi' ></span></p>
+<div  style="display:none";><img src="https://syuukisei17.github.io/img/logo.png" alt="logo"></div>
+<p><a href="https://syuukisei17.github.io/">ฅ^•ﻌ•^ฅ<span id='city'></span></a></p>
+<!-- <p  class='little'> -->
+<div class="left">
+<a href="javascript:void(0)" onclick='Weather.fn("beijing")' class="the_City">北京</a>
+<a href="javascript:void(0)" onclick='Weather.fn("shanghai")' class="the_City">上海</a>
+<a href="javascript:void(0)" onclick='Weather.fn("guangzhou")' class="the_City">广州</a>
 </div>
-<div id='div1'>
-<p>即时温度:<span id='tmp' ></span>℃</p>
-<p>气温：<span id='max' ></span>℃~<span id='min' ></span>℃</p>
-<p>PM2.5：<span id='pm25' ></span></p>
-<p>PM10：<span id='pm10' ></span></p>
+<div class="right">
+<a href="javascript:void(0)" onclick='Weather.fn("shenzhen")' class="the_City">深圳</a>
+<a href="javascript:void(0)" onclick='Weather.fn("chongqing")' class="the_City">重庆</a>
+<a href="javascript:void(0)" onclick='Weather.fn("chengdu")' class="the_City">成都</a>
 </div>
-<p id='suggestion'>建议：<span id='air_txt' ></p>
+<!-- </p> -->
+<p class='little'>空气质量：<span id='qlt' ></span></p>
+<p class='little'>空气质量指数：<span id='aqi' ></span></p>
+<p class='little'>PM2.5：<span id='pm25' ></span></p>
+<p class='little'>PM10：<span id='pm10' ></span></p>
+<p class='little'>健康影响情况：<span id='suggestion' ></p>
+<p class='little'>信息来源：<span id='source' ></p>
+<p class='little'>空气质量标准：<span><a href="http://aqicn.org/scale/cn/">http://aqicn.org/scale/cn/</a></p>
+<br>
 </body>
-<!-- <script>
-// window.onload = test();
-</script> -->
+<script>
+this.Weather = {};
+Weather.show = {};
+var objA = {};
+var city = {};
+var check_need = false;
+Weather.fn = function (fn_city){
+	if(!fn_city){
+		var the_city ="https://api.waqi.info/feed/shanghai/?token=demo";//json
+	}
+	else if(fn_city=="beijing"){
+		var the_city ="https://api.waqi.info/feed/beijing/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
+	}else if(fn_city=="shanghai"){
+		var the_city ="https://api.waqi.info/feed/shanghai/?token=demo";//json
+	}else if(fn_city=="guangzhou"){
+		var the_city ="https://api.waqi.info/feed/guangzhou/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
+	}else if(fn_city=="shenzhen"){
+		var the_city ="https://api.waqi.info/feed/shenzhen/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
+	}else if(fn_city=="chengdu"){
+		var the_city ="https://api.waqi.info/feed/chengdu/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
+	}else if(fn_city=="chongqing"){
+		var the_city ="https://api.waqi.info/feed/chongqing/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
+	}
+	if(fn_city){CheckInterval()}
+	// var the_city ="https://api.waqi.info/feed/shanghai/?token=demo";//测试
+
+	var XML = new XMLHttpRequest();//请求服务器文件
+	XML.open('GET',the_city,true);//请求服务器文件
+	// console.log(XML);//检测文件是否获取成功
+	XML.onload = function () {
+	objA = JSON.parse(this.responseText);//解析和赋值
+	}
+	XML.send();//传递数据
+	setTimeout(Weather.show, 1000)
+	check_need = true;
+	console.log("GET1")
+	console.log(check_need);
+}
+function Check2(){
+	var a = 0;
+	return function () {
+		if(!check_need){
+		console.log("TypeError")
+		setTimeout(Weather.fn, 100);
+		a++;
+		console.log("Check Clean "+a)
+		}else{
+			Weather.show();
+		}
+
+	}
+}
+var Check3 = Check2();
+function CheckInterval(){
+setTimeout(Check3, 2000);
+setTimeout(Check3, 4000);
+setTimeout(Check3, 6000);
+}
+
+// setTimeout(Weather.fn, 2000);
+// setTimeout(Weather.fn, 3000);
+Weather.show = function(){
+	city.name = objA.data.city.name;
+	city.aqi = objA.data.aqi;
+	city.pm10 = objA.data.iaqi.pm10.v;
+	city.pm25 = objA.data.iaqi.pm25.v;
+	city.source = objA.data.attributions[0].name;
+// 对应的空气质量等级
+	if(city.aqi<51){
+	document.getElementById('qlt').innerHTML="优秀/Good";
+	document.getElementById('suggestion').innerHTML="空气质量令人满意，基本无空气污染";
+	qlt.style.backgroundColor="#009966"
+	}
+	if(city.aqi<101&&city.aqi>50){
+	document.getElementById('qlt').innerHTML="良好/Moderate";
+	document.getElementById('suggestion').innerHTML="空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响";
+	qlt.style.backgroundColor="#FFDE33"
+	}
+	if(city.aqi<151&&city.aqi>100){
+	document.getElementById('qlt').innerHTML="部分人群敏感/Unhealthy for Sensitive Groups";
+	document.getElementById('suggestion').innerHTML="易感人群症状有轻度加剧，健康人群出现刺激症状";
+	qlt.style.backgroundColor="#FF9933"
+	}
+	if(city.aqi<201&&city.aqi>150){
+	document.getElementById('qlt').innerHTML="轻度污染/Unhealthy";
+	document.getElementById('suggestion').innerHTML="进一步加剧易感人群症状，可能对健康人群心脏、呼吸系统有影响";
+	qlt.style.backgroundColor="#CC0033"
+
+	}
+	if(city.aqi<301&&city.aqi>200){
+	document.getElementById('qlt').innerHTML="严重污染/Very Unhealthy";
+	document.getElementById('suggestion').innerHTML="心脏病和肺病患者症状显著加剧，运动耐受力降低，健康人群普遍出现症状";
+	qlt.style.backgroundColor="#660099"
+	}
+	if(city.aqi>300){
+	document.getElementById('qlt').innerHTML="危险/Hazardous";
+	document.getElementById('suggestion').innerHTML="健康人群运动耐受力降低，有明显强烈症状，提前出现某些疾病";
+	qlt.style.backgroundColor="#7E0023"
+	}
+	qlt.style.color="#fff"//字体颜色
+	qlt.style.padding ="0 0.5rem";
+document.getElementById('city').innerHTML=city.name;
+document.getElementById('aqi').innerHTML=city.aqi;
+document.getElementById('pm25').innerHTML=city.pm25;
+document.getElementById('pm10').innerHTML=city.pm10;
+document.getElementById('source').innerHTML=city.source;
+console.log("GET ALL")
+}
+window.onload = Weather.fn;
+window.onload = CheckInterval;
+</script>
 </html>
