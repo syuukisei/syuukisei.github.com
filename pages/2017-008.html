@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+html {
+	font-family:  'Arima Madurai';
+	font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/
+	width: 100%;
+	height: 100%;
+}
+body {
+	/*background:url(https://syuukisei17.github.io/pages/2017-007/map.gif) no-repeat center 50%;/*横向居中，百分比为x和y轴的位置*/
+	/*background-size: contain;*/
+	color: #2581D8;
+	box-sizing: border-box;
+	 width: 90%;
+	 height: 90%;
+	 font-size: 1.4rem;/*1.4 × 10px = 14px
+                      2.4 × 10px = 24px*/
+	 margin: 2rem auto;
+}
+#logo_cat{
+	font-size: 5rem;
+}
+#city {
+	margin-top: -2rem;
+	display: block;
+	font-size: 5rem;
+}
+.right_title, .left_title{
+	border-radius: 1rem;
+	width: 100%;
+	display: block;
+	background-color:#2581D8;
+	color:#fff;
+	margin:1rem 0;
+	/*padding: 0 1rem;*/
+}
+.left , .right{
+	margin-right: auto;
+	font-size: 2.5rem;
+	text-align: center;
+	display: inline-block;
+	width: 45%;
+}
+.left{
+	overflow: auto;
+}
+.right{
+	border: 1px solid;
+	color:#fff;
+	float: right;
+}
+ .the_aqiB, .the_aqiC{
+	display: inline-block;
+	color: #fff;
+	background-color: #2581D8;
+	margin-top: 2rem;
+	border-radius: 1rem;
+	border: 1px solid;
+	font-size: 2.5rem;
+	text-align: center;
+}
+.the_aqiB ,#the_aqiB{
+	display: inline-block;
+	width:25%;
+}
+.the_aqiC, #the_aqiC{
+	display: inline-block;
+	float: right;
+	margin-right: 0;
+	width:74%;
+}
+#the_aqiC{
+	color: #fff;
+	font-size: 2rem;
+}
+#the_aqiB{
+	color: #fff;
+	font-size: 2rem;
+}
+#the_aqiB p, #the_aqiC p, .the_aqiB {
+	overflow: hidden; /*自动隐藏文字*/
+	text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+	white-space: nowrap;/*强制不换行*/
+	/*width: 20em;不允许出现半汉字截断*/
+}
+p{
+	font-size: 2rem;
+	text-align: center;
+	border: 1px solid;
+	border-radius: 1rem;
+}
+a,a:visited {
+	text-decoration:none;
+	color: #2581D8;}
+a:hover,a:active {color: #21ff1f;}
+.Good{
+	border-color: #2581D8;
+	background-color:#009966;
+}
+.Moderate{
+	color: #746101;
+	border-color: #2581D8;
+	background-color:#FFDE33;
+}
+.Unhealthy1{
+	color: #643200;
+	border-color: #2581D8;
+	background-color:#FF9933;
+}
+.Unhealthy2{
+	border-color: #2581D8;
+	background-color:#CC0033;
+}
+.Unhealthy3{
+	border-color: #2581D8;
+	background-color:#660099;
+}
+.Hazardous{
+	border-color: #2581D8;
+	background-color:#7E0023;
+}
+
+/*@media screen and (min-width: 100px) and (max-width: 399) {
+.the_aqiB, .the_aqiC, .right_title, .left_title{
+	font-size: 1.4rem;
+}
+#city{
+	font-size: 3.5rem;
+}
+#the_aqiC, #the_aqiB{
+	display:none;
+}
+}*/
+@media screen and (min-width: 200px) and (max-width: 399px) {
+.the_aqiB, .the_aqiC {
+	font-size: 1.4rem;
+}
+.right, .left {
+	font-size: 1.8rem;
+}
+#logo_cat{
+	font-size: 2.8rem;
+}
+#city{
+	margin-top: -1rem;
+	font-size: 2.5rem;
+}
+#the_aqiC, #the_aqiB, .the_aqiC, .the_aqiB{
+	display:none;
+}
+}
+
+@media screen and (min-width: 400px) and (max-width: 599px) {
+.the_aqiB, .the_aqiC /*.right_title, .left_title*/{
+	font-size: 1.2rem;
+}
+#city, #logo_cat{
+	font-size: 3.5rem;
+}
+.right, .left {
+	font-size: 2rem;
+}
+#the_aqiC, #the_aqiB, .the_aqiC, .the_aqiB{
+	display:none;
+}
+}
+
+@media screen and (min-width: 600px) and (max-width: 799px) {
+.the_aqiB, .the_aqiC  /*.right_title, .left_title*/{
+	font-size: 1.7rem;
+}
+#city{
+	font-size: 3.8rem;
+}
+.right, .left {
+	font-size: 2.2rem;
+}
+#the_aqiC p, #the_aqiB p{
+	font-size: 1.3rem;
+}
+}
+
+@media screen and (min-width: 800px) and (max-width: 999px) {
+.the_aqiB, .the_aqiC, .right_title, .left_title{
+	font-size: 2.1rem;
+}
+#city{
+	font-size: 4rem;
+}
+#the_aqiC p, #the_aqiB p{
+	font-size: 1.7rem;
+}
+.right p, .left p {
+	margin-top: 0;
+	font-size:1.9;
+}
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1199px) {
+.the_aqiB, .the_aqiC, .right_title, .left_title{
+	font-size: 2.3rem;
+}
+#the_aqiC p, #the_aqiB p{
+	font-size: 1.8rem;
+}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+#the_aqiC p, #the_aqiB p{
+	font-size: 1.9rem;
+}
+.right p, .left p {
+	margin-top: 0;
+	font-size:1.9;
+}
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1599px) {
+#the_aqiC p{
+	font-size: 2rem;
+}
+}
+@media screen and (min-width: 1600px) {
+}
+
+</style>
+	<meta name="viewport" data-line-img="https://syuukisei17.github.io/img/logo.png" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>深圳空气质量指数</title>
+</head>
+<body>
+<div  style="display:none";><img src="https://syuukisei17.github.io/img/logo.png" alt="logo"></div>
+<p><a href="https://syuukisei17.github.io/" id="logo_cat">ฅ^•ﻌ•^ฅ<span id='city'>深圳市区空气质量指数</span></a></p>
+<div class="left">
+<span class="left_title">检测地点</span>
+</div>
+<div class="right">
+<span class="right_title">AQI指数 / PM2.5</span>
+</div>
+<div class="the_aqiB">空气质量指数和级别</div>
+<div class="the_aqiC">对健康影响情况</div>
+<div id="the_aqiB">
+<p class="Good">一级（优）/ 0 - 50</p>
+<p class="Moderate">二级（良）/ 51 -100</p>
+<p class="Unhealthy1">三级（轻度污染）/ 101-150</p>
+<p class="Unhealthy2">四级（中度污染）/ 151-200</p>
+<p class="Unhealthy3">五级（重度污染）/ 201-300</p>
+<p class="Hazardous">六级（严重污染）/ 300+</p>
+</div>
+<div id="the_aqiC">
+<p class="Good">各类人群可正常活动</p>
+<p class="Moderate">极少数异常敏感人群应减少户外活动</p>
+<p class="Unhealthy1">儿童、老年人及心脏病、呼吸系统疾病患者应减少长时间、高强度的户外锻炼</p>
+<p class="Unhealthy2">儿童、老年人及心脏病、呼吸系统疾病患者避免长时间、高强度的户外锻炼，一般人群适量减少户外运动</p>
+<p class="Unhealthy3">儿童、老年人及心脏病、肺病患者应停留在室内，停止户外运动，一般人群减少户外运动</p>
+<p class="Hazardous">儿童、老年人和病人应停留在室内，避免体力消耗，一般人群避免户外活动</p>
+</div>
+<br>
+</body>
+<script>
+var Weather = {};
+Weather.show = {};
+var objA = {};
+// var city = {};
+var the_city_url = '';//服务器地址
+// city.Placename = new Array();//地点名称
+var need_checking = false;
+Weather.fn = function (){
+	the_city_url ="https://wind.waqi.info/mapq/bounds/?bounds=22.31800000000000,113.67800000000000,22.724200000000000,114.49600000000000&inc=placeholders&k=_2Y2EzVRxIHV0cIyNDSxRWXmldbA49LRlSFlYzLg==&_=1483882783342";
+	// var the_city ="https://api.waqi.info/feed/shanghai/?token=demo";//测试
+	var XML = new XMLHttpRequest();//请求服务器文件
+	XML.open("GET",the_city_url,true);//请求服务器文件
+	console.log(XML);//检测文件是否获取成功
+	XML.onload = function () {
+	objA = JSON.parse(this.responseText);//解析和赋值
+	}
+	XML.send();//传递数据
+	console.log("GET1")
+	need_checking = true;
+	console.log(need_checking)
+}
+Weather.show = function(){
+	if(document.getElementsByClassName('right')[0].getElementsByTagName("p").length==0&&need_checking==true){
+	// if(document.getElementsByClassName('right')[0][9]==undefined){
+	console.log(100)
+	areas=new Array(21);
+	aqis=new Array(21);
+	for(var i=0;i<objA.length;i++){
+	if(objA[i].city.split("(")[1].length>5){
+	areas.push(objA[i].city.split("(")[1].split(")")[0].split("市")[1])
+	aqis.push(objA[i].aqi)
+	}}
+	function isTure(element) {
+	if(element){
+  	return element;
+	}}
+	areas=areas.filter(isTure)
+	aqis=aqis.filter(isTure)
+	for(i=0;i<areas.length;i++){
+	document.getElementsByClassName('left')[0].appendChild(document.createElement("p")).appendChild(document.createTextNode(areas[i]))}
+	for(i=0;i<aqis.length;i++){
+		if(aqis[i])
+	document.getElementsByClassName('right')[0].appendChild(document.createElement("p")).appendChild(document.createTextNode(aqis[i]))}
+	for(i=0;i<aqis.length;i++){
+		var color = document.getElementsByClassName('right')[0].getElementsByTagName("p");
+	if(aqis[i]<51){
+	color[i].style.backgroundColor="#009966"
+	}
+	if(aqis[i]<101&&aqis[i]>50){
+	color[i].style.backgroundColor="#FFDE33"
+	}
+	if(aqis[i]<151&&aqis[i]>100){
+	color[i].style.backgroundColor="#FF9933"
+	}
+	if(aqis[i]<201&&aqis[i]>150){
+	color[i].style.backgroundColor="#CC0033"
+	}
+	if(aqis[i]<301&&aqis[i]>200){
+	color[i].style.backgroundColor="#660099"
+	}
+	if(aqis[i]>300){
+	color[i].style.backgroundColor="#7E0023"
+	}
+	}
+	}
+	console.log("test+")
+}
+function CheckInterval(){
+setTimeout(Weather.show, 5000);
+setTimeout(Weather.show, 1000);
+setTimeout(Weather.show, 1500);
+setTimeout(Weather.show, 2000);
+setTimeout(Weather.show, 5000);
+setTimeout(Weather.show, 10000);
+}
+window.onload = CheckInterval;//测试三次
+setTimeout(Weather.fn, 100);
+// setTimeout(Weather.show, 500);
+// setTimeout(Weather.show, 1000);
+</script>
+</html>
+
