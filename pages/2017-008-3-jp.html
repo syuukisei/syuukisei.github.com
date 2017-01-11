@@ -28,6 +28,9 @@ body {
 	display: block;
 	font-size: 5rem;
 }
+.right p{
+	background-color: #2581D8 ;
+}
 .left p{
 	overflow: hidden; /*自动隐藏文字*/
 	text-overflow: ellipsis;/*文字隐藏后添加省略号*/
@@ -347,9 +350,6 @@ Weather.show = function(){
 	}
 	if(areas2[i][1]>300){
 	color[i].style.backgroundColor="#7E0023"
-	}
-	if(areas2[i][1]='-'){
-	color[i].style.backgroundColor="#2581D8"
 	}
 	}
 	}
