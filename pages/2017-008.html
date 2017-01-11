@@ -302,42 +302,45 @@ Weather.show = function(){
 	if(document.getElementsByClassName('right')[0].getElementsByTagName("p").length==0&&need_checking==true){
 	// if(document.getElementsByClassName('right')[0][9]==undefined){
 	console.log(100)
-	areas=new Array(21);
-	aqis=new Array(21);
+	areas=new Array();
+	areas2 = new Array();
 	for(var i=0;i<objA.length;i++){
 	if(objA[i].city.split("(")[1].length>5){
 	areas.push(objA[i].city.split("(")[1].split(")")[0].split("市")[1])
-	aqis.push(objA[i].aqi)
+	areas.push(objA[i].aqi)
 	}}
-	function isTure(element) {
+	for(var i=0;i<areas.length;i++){
+	areas2[i]=new Array();
+	areas2[i].push(areas[i],areas[++i])
+	}
+	// areas2.sort();
+	function isTrue(element) {
 	if(element){
   	return element;
 	}}
-	areas=areas.filter(isTure)
-	aqis=aqis.filter(isTure)
-	for(i=0;i<areas.length;i++){
-	document.getElementsByClassName('left')[0].appendChild(document.createElement("p")).appendChild(document.createTextNode(areas[i]))}
-	for(i=0;i<aqis.length;i++){
-		if(aqis[i])
-	document.getElementsByClassName('right')[0].appendChild(document.createElement("p")).appendChild(document.createTextNode(aqis[i]))}
-	for(i=0;i<aqis.length;i++){
+	areas2=areas2.sort().filter(isTrue)
+	for(i=0;i<areas2.length;i++){
+	document.getElementsByClassName('left')[0].appendChild(document.createElement("p")).appendChild(document.createTextNode(areas2[i][0]))}
+	for(i=0;i<areas2.length;i++){
+	document.getElementsByClassName('right')[0].appendChild(document.createElement("p")).appendChild(document.createTextNode(areas2[i][1]))}
+	for(i=0;i<areas2.length;i++){
 		var color = document.getElementsByClassName('right')[0].getElementsByTagName("p");
-	if(aqis[i]<51){
+	if(areas2[i][1]<51){
 	color[i].style.backgroundColor="#009966"
 	}
-	if(aqis[i]<101&&aqis[i]>50){
+	if(areas2[i][1]<101&&areas2[i][1]>50){
 	color[i].style.backgroundColor="#FFDE33"
 	}
-	if(aqis[i]<151&&aqis[i]>100){
+	if(areas2[i][1]<151&&areas2[i][1]>100){
 	color[i].style.backgroundColor="#FF9933"
 	}
-	if(aqis[i]<201&&aqis[i]>150){
+	if(areas2[i][1]<201&&areas2[i][1]>150){
 	color[i].style.backgroundColor="#CC0033"
 	}
-	if(aqis[i]<301&&aqis[i]>200){
+	if(areas2[i][1]<301&&areas2[i][1]>200){
 	color[i].style.backgroundColor="#660099"
 	}
-	if(aqis[i]>300){
+	if(areas2[i][1]>300){
 	color[i].style.backgroundColor="#7E0023"
 	}
 	}
