@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fetch()</title>
+</head>
+<body>
+	<p></p>
+	<p></p>
+	<p></p>
+</body>
+<script>
+	var URL= 'https://api.waqi.info/feed/shanghai/?token=demo';
+	var URLRes = '';
+	var URLResAll = '';
+	function demo(url){
+		fetch(URL).then(function(res){
+			URLResAll = res;
+		res.json().then(function(data){
+		URLRes = data;
+})
+})}
+	demo(URL);
+	setTimeout(test,1000)
+	function test(){
+	document.getElementsByTagName('p')[0].innerHTML=URLRes.data.attributions["0"].name;
+	document.getElementsByTagName('p')[1].innerHTML=URLRes.data.city.name;
+	document.getElementsByTagName('p')[2].innerHTML=URLRes.data.city.url;
+}
+</script>
+</html>
