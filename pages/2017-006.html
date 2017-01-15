@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +49,11 @@ body {
 .right{
 	float: right;
 }
+/*.little span{
+	overflow: hidden;
+    	text-overflow: ellipsis;
+    	white-space: nowrap;
+}*/
 p{
 	text-align: center;
 	border: 1px solid;
@@ -132,17 +138,18 @@ p {
 <p><a href="https://syuukisei17.github.io/">ฅ^•ﻌ•^ฅ<span id='city'></span></a></p>
 <!-- <p  class='little'> -->
 <div class="left">
-<a href="javascript:void(0)" onclick='Weather.fn("beijing")' class="the_City">北京</a>
-<a href="javascript:void(0)" onclick='Weather.fn("shanghai")' class="the_City">上海</a>
-<a href="javascript:void(0)" onclick='Weather.fn("guangzhou")' class="the_City">广州</a>
+<a href="javascript:void(0)" onclick='Weather.change("beijing")' class="the_City">北京</a>
+<a href="javascript:void(0)" onclick='Weather.change("shanghai")' class="the_City">上海</a>
+<a href="javascript:void(0)" onclick='Weather.change("guangzhou")' class="the_City">广州</a>
 </div>
 <div class="right">
-<a href="javascript:void(0)" onclick='Weather.fn("shenzhen")' class="the_City">深圳</a>
-<a href="javascript:void(0)" onclick='Weather.fn("chongqing")' class="the_City">重庆</a>
-<a href="javascript:void(0)" onclick='Weather.fn("chengdu")' class="the_City">成都</a>
+<a href="javascript:void(0)" onclick='Weather.change("shenzhen")' class="the_City">深圳</a>
+<a href="javascript:void(0)" onclick='Weather.change("chongqing")' class="the_City">重庆</a>
+<a href="javascript:void(0)" onclick='Weather.change("chengdu")' class="the_City">成都</a>
 </div>
 <!-- </p> -->
 <p class='little'>空气质量：<span id='qlt' ></span></p>
+<p class='little'>数据更新时间：<span id='time' ></span></p>
 <p class='little'>空气质量指数：<span id='aqi' ></span></p>
 <p class='little'>PM2.5：<span id='pm25' ></span></p>
 <p class='little'>PM10：<span id='pm10' ></span></p>
@@ -157,26 +164,33 @@ Weather.show = {};
 var objA = {};
 var city = {};
 var check_need = false;
+var the_city = '';
+Weather.change =function(fn_city){
+	if(fn_city=="beijing"){
+		the_city ="https://api.waqi.info/feed/beijing/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
+	}
+	if(fn_city=="shanghai"){
+		the_city ="https://api.waqi.info/feed/shanghai/?token=demo";//json
+	}
+	if(fn_city=="guangzhou"){
+		the_city ="https://api.waqi.info/feed/guangzhou/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
+	}
+	if(fn_city=="shenzhen"){
+		the_city ="https://api.waqi.info/feed/shenzhen/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
+	}
+	if(fn_city=="chengdu"){
+		the_city ="https://api.waqi.info/feed/chengdu/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
+	}
+	if(fn_city=="chongqing"){
+		the_city ="https://api.waqi.info/feed/chongqing/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
+	}
+	Weather.fn(1);
+}
 Weather.fn = function (fn_city){
 	if(!fn_city){
-		var the_city ="https://api.waqi.info/feed/shanghai/?token=demo";//json
+		the_city ="https://api.waqi.info/feed/shanghai/?token=demo";//json
 	}
-	else if(fn_city=="beijing"){
-		var the_city ="https://api.waqi.info/feed/beijing/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
-	}else if(fn_city=="shanghai"){
-		var the_city ="https://api.waqi.info/feed/shanghai/?token=demo";//json
-	}else if(fn_city=="guangzhou"){
-		var the_city ="https://api.waqi.info/feed/guangzhou/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
-	}else if(fn_city=="shenzhen"){
-		var the_city ="https://api.waqi.info/feed/shenzhen/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
-	}else if(fn_city=="chengdu"){
-		var the_city ="https://api.waqi.info/feed/chengdu/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
-	}else if(fn_city=="chongqing"){
-		var the_city ="https://api.waqi.info/feed/chongqing/?token=16bedb0639d9a51c8b64209d306a3617ba700a32";//json
-	}
-	if(fn_city){CheckInterval()}
 	// var the_city ="https://api.waqi.info/feed/shanghai/?token=demo";//测试
-
 	var XML = new XMLHttpRequest();//请求服务器文件
 	XML.open('GET',the_city,true);//请求服务器文件
 	// console.log(XML);//检测文件是否获取成功
@@ -188,78 +202,71 @@ Weather.fn = function (fn_city){
 	check_need = true;
 	console.log("GET1")
 	console.log(check_need);
+	CheckInterval();
 }
 function Check2(){
-	var a = 0;
-	return function () {
-		if(!check_need){
-		console.log("TypeError")
-		setTimeout(Weather.fn, 100);
-		a++;
-		console.log("Check Clean "+a)
-		}else{
-			Weather.show();
-		}
-
+	if(document.getElementById('city').innerHTML==objA.data.city.name){
+		return;//若两个城市名字一样 则无误
+	}else{
+		Weather.show();//否则 重新执行赋值
 	}
 }
-var Check3 = Check2();
+setTimeout(Weather.fn, 100);
 function CheckInterval(){
-setTimeout(Check3, 2000);
-setTimeout(Check3, 4000);
-setTimeout(Check3, 6000);
+setTimeout(Check2, 2000);
+setTimeout(Check2, 4000);
+setTimeout(Check2, 6000);
 }
 
 // setTimeout(Weather.fn, 2000);
 // setTimeout(Weather.fn, 3000);
 Weather.show = function(){
 	city.name = objA.data.city.name;
-	city.aqi = objA.data.aqi;
-	city.pm10 = objA.data.iaqi.pm10.v;
-	city.pm25 = objA.data.iaqi.pm25.v;
+	objA.data.aqi = objA.data.aqi;
+	objA.data.iaqi.pm10.v = objA.data.iaqi.pm10.v;
+	objA.data.iaqi.pm25.v = objA.data.iaqi.pm25.v;
 	city.source = objA.data.attributions[0].name;
 // 对应的空气质量等级
-	if(city.aqi<51){
+	if(objA.data.aqi<51){
 	document.getElementById('qlt').innerHTML="优秀/Good";
 	document.getElementById('suggestion').innerHTML="空气质量令人满意，基本无空气污染";
 	qlt.style.backgroundColor="#009966"
 	}
-	if(city.aqi<101&&city.aqi>50){
+	if(objA.data.aqi<101&&objA.data.aqi>50){
 	document.getElementById('qlt').innerHTML="良好/Moderate";
 	document.getElementById('suggestion').innerHTML="空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响";
 	qlt.style.backgroundColor="#FFDE33"
 	}
-	if(city.aqi<151&&city.aqi>100){
+	if(objA.data.aqi<151&&objA.data.aqi>100){
 	document.getElementById('qlt').innerHTML="部分人群敏感/Unhealthy for Sensitive Groups";
 	document.getElementById('suggestion').innerHTML="易感人群症状有轻度加剧，健康人群出现刺激症状";
 	qlt.style.backgroundColor="#FF9933"
 	}
-	if(city.aqi<201&&city.aqi>150){
+	if(objA.data.aqi<201&&objA.data.aqi>150){
 	document.getElementById('qlt').innerHTML="轻度污染/Unhealthy";
 	document.getElementById('suggestion').innerHTML="进一步加剧易感人群症状，可能对健康人群心脏、呼吸系统有影响";
 	qlt.style.backgroundColor="#CC0033"
 
 	}
-	if(city.aqi<301&&city.aqi>200){
+	if(objA.data.aqi<301&&objA.data.aqi>200){
 	document.getElementById('qlt').innerHTML="严重污染/Very Unhealthy";
 	document.getElementById('suggestion').innerHTML="心脏病和肺病患者症状显著加剧，运动耐受力降低，健康人群普遍出现症状";
 	qlt.style.backgroundColor="#660099"
 	}
-	if(city.aqi>300){
+	if(objA.data.aqi>300){
 	document.getElementById('qlt').innerHTML="危险/Hazardous";
 	document.getElementById('suggestion').innerHTML="健康人群运动耐受力降低，有明显强烈症状，提前出现某些疾病";
 	qlt.style.backgroundColor="#7E0023"
 	}
 	qlt.style.color="#fff"//字体颜色
 	qlt.style.padding ="0 0.5rem";
-document.getElementById('city').innerHTML=city.name;
-document.getElementById('aqi').innerHTML=city.aqi;
-document.getElementById('pm25').innerHTML=city.pm25;
-document.getElementById('pm10').innerHTML=city.pm10;
-document.getElementById('source').innerHTML=city.source;
+document.getElementById('city').innerHTML=objA.data.city.name;
+document.getElementById('aqi').innerHTML=objA.data.aqi;
+document.getElementById('time').innerHTML=objA.data.time.s;
+document.getElementById('pm25').innerHTML=objA.data.iaqi.pm25.v;
+document.getElementById('pm10').innerHTML=objA.data.iaqi.pm10.v;
+document.getElementById('source').innerHTML=objA.data.attributions[0].name;
 console.log("GET ALL")
 }
-window.onload = Weather.fn;
-window.onload = CheckInterval;
 </script>
 </html>
