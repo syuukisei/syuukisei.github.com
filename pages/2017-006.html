@@ -221,11 +221,6 @@ setTimeout(Check2, 6000);
 // setTimeout(Weather.fn, 2000);
 // setTimeout(Weather.fn, 3000);
 Weather.show = function(){
-	city.name = objA.data.city.name;
-	objA.data.aqi = objA.data.aqi;
-	objA.data.iaqi.pm10.v = objA.data.iaqi.pm10.v;
-	objA.data.iaqi.pm25.v = objA.data.iaqi.pm25.v;
-	city.source = objA.data.attributions[0].name;
 // 对应的空气质量等级
 	if(objA.data.aqi<51){
 	document.getElementById('qlt').innerHTML="优秀/Good";
