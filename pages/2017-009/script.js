@@ -1,4 +1,4 @@
-var URL= 'http://news-at.zhihu.com/api/4/news/latest';
+var URL= 'https://news-at.zhihu.com/api/4/news/latest';
 var URLRes = '';
 function demo(url){
 	fetch(url,{method: 'GET',mode: 'cors',cache: 'default'}).then(function(res){
