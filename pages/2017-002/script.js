@@ -72,5 +72,5 @@ function _bu() {
 	}
 }
 function refresh(){
-	window.location.href='https://syuukisei17.github.io/pages/2017-002.html';
+	window.location.href='https://syuukisei.github.io/pages/2017-002.html';
 }
