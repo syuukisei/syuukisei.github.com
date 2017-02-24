@@ -1,1 +1,1 @@
-# <a href="https://syuukisei17.github.io/">syuukisei17.github.com<a/>
+# <a href="https://syuukisei.github.io/">syuukisei.github.com<a/>
