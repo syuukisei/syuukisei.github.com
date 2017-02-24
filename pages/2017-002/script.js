@@ -12,9 +12,9 @@ var tie =function(){
 	document.getElementById('alert').innerHTML = 'Not bad~';
 	document.getElementById('computer').style.backgroundColor="#f4f4f4";
 }
-var computer_shitou = function(){document.getElementById('computer').src ="https://raw.githubusercontent.com/syuukisei17/syuukisei17.github.com/master/img/quantou.png";}
-var computer_jiandao = function(){document.getElementById('computer').src ="https://raw.githubusercontent.com/syuukisei17/syuukisei17.github.com/master/img/jiandao.png";}
-var computer_bu = function(){document.getElementById('computer').src ="https://raw.githubusercontent.com/syuukisei17/syuukisei17.github.com/master/img/bu.png";}
+var computer_shitou = function(){document.getElementById('computer').src ="https://syuukisei.github.io/pages/2017-002/img/quantou.gif";}
+var computer_jiandao = function(){document.getElementById('computer').src ="https://syuukisei.github.io/pages/2017-002/img/jiandao.gif";}
+var computer_bu = function(){document.getElementById('computer').src ="https://syuukisei.github.io/pages/2017-002/img/bu.gif";}
 var my_shitou = function(){document.getElementById('my').innerHTML = 'Rock';}
 var my_jiandao = function(){document.getElementById('my').innerHTML = 'Scissors ';}
 var my_bu = function(){document.getElementById('my').innerHTML = 'Paper';}
