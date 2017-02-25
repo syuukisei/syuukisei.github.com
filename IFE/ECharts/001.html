@@ -9,9 +9,10 @@
  <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
     <div id="main" style="width: 600px;height:400px;"></div>
      <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
+              // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
-
+        var fruits =  ["芒果","雪梨","香蕉","桃子","凤梨","木瓜"];
+        var fruitsData = [2,8,9,2,6,10]
         // 指定图表的配置项和数据
         var option = {
             title: {
@@ -19,23 +20,32 @@
             },
             tooltip: {},
             legend: {
-                data:['水果']
+                data:['水果-Bar','水果-Line']
             },
             xAxis: {
-                data: ["芒果","雪梨","香蕉","桃子","凤梨","木瓜"]
+                data: fruits
             },
             yAxis: {},
             series: [{
-                name: '水果',
-                color:"#555",
-                type: 'line',
-                data: [1, 2, 9, 4, 3, 6]
+            	itemStyle: {
+	      normal: {
+	        color: '#00bc42'
+	      }
+	    },
+                name: '水果-Bar',
+              type: 'bar',
+                data:fruitsData
             },
             {
-                name: '水果',
-                type: 'bar',
-                 smooth: true,
-                data: [1, 2, 9, 4, 3, 6]
+            		itemStyle: {
+	      normal: {
+	        color: '#126d00'
+	      }
+	    },
+                name: '水果-Line',
+                 color:"#00bc42",
+                type: 'line',
+                 data:fruitsData
             }]}
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
