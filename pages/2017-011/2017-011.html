@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>梦幻水滴</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+<script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
+<script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
+<script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
+<script src="https://syuukisei.github.io/pages/2017-011/app.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	exportRoot = new lib.水滴();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+</script>
+</head>
+<body onload="init();" style="background-color:#181743">
+	<a href="https://syuukisei.github.io/" id = "left">Canvas Syuukisei</a>
+		<a href="https://dribbble.com/shots/3224027-Fantastic-Planet-002" id = "left">Img by Brenttton</a>
+	<a href="http://127.0.0.1:8090/%E6%B0%B4%E6%BB%B4.html" id = "right"> Refresh </a>
+
+	<canvas id="canvas" width="800" height="600" style="background-color:#181743"></canvas>
+</body>
+<style>
+html{
+	font-family: 'Slabo 27px', serif; 'Arima Madurai';
+}
+body{
+	margin:0 auto;
+	width: 800px;
+	margin-top: 20px;
+}
+a{	padding: 15px;
+	color: #9AFF61;
+	font-size: 30px;
+	margin:0 auto;
+	text-decoration:none;
+}
+ a:hover{
+ 	background: #fff;
+ }
+ #right{
+ 	float: right;
+ }
+#left{
+	color: #9AFF61;
+	float: left;
+
+}
+#canvas{
+	margin:0 auto;
+}
+</style>
+</html>
