@@ -27,6 +27,14 @@ function init() {
 	createjs.Ticker.setFPS(lib.properties.fps);
 	createjs.Ticker.addEventListener("tick", stage);
 }
+function refresh(){
+	var Clear = document.getElementById("refresh");
+	var ExportRoot =null;
+	stage = new createjs.Stage(Clear);
+	stage.addChild(exportRoot);
+	stage.update();
+	init();
+}
 </script>
 </head>
 <body onload="init();" style="background-color:#181743">
@@ -35,7 +43,7 @@ function init() {
 	<a href="https://dribbble.com/shots/3224027-Fantastic-Planet-002" id = "left">Img by Brenttton</a>
 	<a href="https://syuukisei.github.io/pages/2017-011/index.html" id = "right"> Refresh </a>
 	<br>
-	<canvas onclick="location.reload()" id="canvas" width="800" height="600" style="background-color:#181743"></canvas>
+	<canvas onclick="refresh()" id="canvas" width="800" height="600" style="background-color:#181743"></canvas>
 	<p>Click the Canvas to reload it.</p>
 </body>
 <style>
