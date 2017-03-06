@@ -1,1 +1,108 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+	body{
+		margin: 3% auto;
+		max-width:1000px;
+		min-width: 200px;
+	}
+	header{
+		text-transform: uppercase;
+	}
+	header>div>h1{
+		margin-top: 0;
+		margin-bottom: 0;
+		font-size: 50px;
+	}
+	header>div>p{
+		text-align: right;
+		margin-top: 0;
+	}
+	header>img{
+		margin: 10px 0;
+	}
+	hr{
+		height:5px;
+		border:0px;
+		background-color:#7994ae;
+		color:#7994ae;"
+	}
+	#uda-logo{
+		flex-flow: row;
+		width: 75px;
+	}
+	#info{
+		float:right;
+	}
+	.flex{
+		display: flex;
+	}
+	#main-jpg{
+		margin: 20px auto;
+		max-width: 1000px;
+		width: 100%;
+		min-width: 150px;
+	}
+	div>img{
+		width: 95%;
+	}
+	div>h2{
+		margin:10px auto;
+		font-size: 32px;
+		text-transform: uppercase;
+	}
+	.project{
+		width: 33%;
+		flex-flow: row;
+	}
+	container>h1{
+		color: #7994ae;
+	}
+	a, h2{
+		display: block;
+		text-align: center;
+	}
+	a{
+		color: #000;
+		font-size: 15px;
+	}
+	.img-center{
+		display: block;
+		margin: 5px auto;
+	}
+	</style>
+	<meta charset="UTF-8">
+	<title>syuukisei personal page</title>
+</head>
+<body>
+	<header>
+		<img src="img/uda_logo.svg" alt="udacity's logo" id="uda-logo">
+		<div id="info">
+			<h1>syuukisei</h1>
+			<p>font-end engineer</p>
+		</div>
+	</header>
+	<hr>
+	<img src="img/main.jpg" alt="main's jpg" id="main-jpg">
+	<container>
+			<h1>Featured Work</h1>
+			<div class="flex">
+			<div class="project">
+				<img class="img-center" src="img/img (1).png" alt="project 1">
+				<h2>appify</h2>
+				<a href="#">https://github.com/udacity/appify</a>
+			</div>
+			<div class="project">
+				<img  class="img-center" src="img/img (2).png" alt="project 2">
+				<h2>sunflower</h2>
+				<a href="#">https://github.com/udacity/sunflower</a>
+			</div>
+			<div class="project">
+				<img  class="img-center" src="img/img (3).png" alt="project 3">
+				<h2>bokenh</h2>
+				<a href="#">https://github.com/udacity/bokenh</a>
+			</div></div>
+	</container>
+</body>
+</html>
