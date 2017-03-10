@@ -1,0 +1,126 @@
+	* {
+	    margin: 0;
+	    padding: 0;
+	}
+	html{
+		-moz-box-sizing:border-box;
+		-ms-box-sizing:border-box;
+		box-sizing:border-box;
+		width: 100%;
+	}
+	body{
+		width: 95%;
+		margin:5% auto;
+		/*padding-left: 1%;*/
+		/*padding-right: 1%;*/
+		font-size: 100%;
+		max-width:1000px;
+		min-width: 200px;
+	}
+	header{
+		width: 100%;
+		text-transform: uppercase;
+	}
+	header>div>h1{
+		margin-top: 0;
+		margin-bottom: 0;
+		font-size: 50px;
+	}
+	header>div>p{
+		text-align: right;
+		margin-top: 0;
+	}
+	header>img{
+		margin: 5px 0;
+	}
+	hr{
+		height:5px;
+		border:0px;
+		background-color:#7994ae;
+		color:#7994ae;"
+	}
+	#uda-logo{
+		flex-flow: row;
+		width: 75px;
+	}
+	#info{
+		float:right;
+	}
+	#center-jpg{
+		margin: 20px auto;
+		max-width: 1000px;
+		width: 100%;
+		min-width: 150px;
+	}
+	div>img{
+		width: 95%;
+	}
+	div>h2{
+		margin:10px auto;
+		font-size: 32px;
+		text-transform: uppercase;
+	}
+	.project{
+		width: 33%;
+		/*flex-flow: row;*/
+	}
+	.project>hr{
+			visibility:hidden;
+	}
+	.container>h1{
+		color: #7994ae;
+	}
+	a, h2{
+		display: block;
+		text-align: center;
+		overflow-wrap: break-word;
+		text-decoration:none;
+	}
+	a{
+		color: #000;
+		font-size: 25px;
+		margin:0 5px;
+	}
+	.img-center{
+		display: block;
+		margin: 5px auto;
+	}
+	@media screen and (min-width: 1px) and (max-width: 500px) {
+		header>div>h1{
+		font-size: 30px;
+		}
+		.flex{
+		display: block;
+		}
+		.project{
+		 margin: 0  auto;
+		width: 85%;
+		margin-bottom:8%;
+		}
+		.project>hr{
+			visibility:visible;
+		}
+
+	}
+	@media screen and (min-width: 501px) and (max-width: 800px) {
+		header>div>h1{
+		font-size: 40px;
+		}
+		.flex{
+		display: block;
+		}
+		.project{
+		margin: 0  auto;
+		width: 95%;
+		margin-bottom:8%;
+		}
+		.project>hr{
+			visibility:visible;
+		}
+
+	}
+	@media screen and (min-width: 801px){
+		.flex{
+		display: flex;
+		}
+	}
