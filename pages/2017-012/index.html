@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>China</title>
+	<script src="https://syuukisei.github.io/css/style.css"></script>
+	<style>
+	html{
+		width: 100%;
+	}
+	body{
+		font-size: 100%;
+		width: 98%;
+		margin:5% auto;
+		padding-bottom: 1%;
+	}
+	.media{
+		width: 40%;
+		background-color: #efe;
+	}
+	div{
+
+		border:1px solid #2581D8;
+		border-radius:1rem;
+		font-size: 1rem;
+		margin:5px 1%;
+		text-align: center;
+		color:#fff;
+		padding-bottom: 5px;
+		padding-top:5px;
+	}
+	#lev1{
+	background-color:#009966;
+	}
+	#lev2{
+	background-color:#FFDE33;
+	}
+	#lev3{
+	background-color:#FF9933;
+	}
+	#lev4{
+	background-color:#CC0033;
+	}
+	#lev5{
+	background-color:#660099;
+	}
+	#lev6{
+	background-color:#7E0023;
+	}
+	#info{
+		color:#666;
+	}
+	li{
+		color:#666;
+		font-size: 1rem;
+		letter-spacing: 5px;
+	}
+	hr{
+		height:5px;
+		border:0px;
+		color:#7994ae;
+		/*background-color:#7994ae;*/
+		margin-left: 30px;
+	}
+	@media screen and (max-width: 999px) and (min-width: 400px){
+		.media{width: 95%}
+	}
+	@media screen and (min-width: 1000px) {
+		.media{width: 60%}
+	}
+	</style>
+</head>
+<body>
+<div  style="display:none";><img src="https://syuukisei.github.io/img/logo.png" alt="logo"></div>
+<h1>全国空气质量指数</h1>
+<div class="media">
+<div id="lev1">一级（优）/ 0 - 50</div>
+<div id="lev2">二级（良）/ 51 -100</div>
+<div id="lev3">三级（轻度污染）/ 101-150</div>
+<div id="lev4">四级（中度污染）/ 151-200</div>
+<div id="lev5">五级（重度污染）/ 201-300</div>
+<div id="lev6">六级（严重污染）/ 300+</div>
+<div id="info">城市空气质量采用PM2.5标准</div></div>
+<br>
+</body>
+<script>
+var URL= 'https://wind.waqi.info/mapq/bounds/?bounds=21.53484700204879,78.5302734375,44.49650533109348,119.53125&inc=placeholders&k=_2Y2EzVB92OxAcHS8ISElWXmldaEQ+AzdRFmgjZA==&_=1489168860378';
+	var URLRes = '';
+	var URLResAll = '';
+	function demo(url){
+		fetch(url,{mode: 'cors'}).then(function(res){
+		console.log(res);
+		res.json().then(function(data){
+		URLRes = data;
+})
+})}
+	demo(URL);
+	// demo(URL);
+	// console.log(URLRes);
+	var  newArray = [];
+	var saveArray= [];
+	function copyAgu(city,aqi){
+	this.aqi=aqi;
+	this.city=city;
+	}
+	var copyCity = function(){
+		for (let i = 0; i<URLRes.length; i++) {
+			try{
+			newArray[i]=new copyAgu(URLRes[i].city,URLRes[i].aqi);
+			newArray[i].city=newArray[i].city.split("(");
+			newArray[i].city=newArray[i].city[1].split(")")[0];
+			}catch(e){
+				console.log(i)
+				newArray.splice(i,1);
+			}
+		}
+		function checkUnderfined(value) {
+		  return Boolean(newArray[0]);
+		}
+		saveArray =newArray.filter(checkUnderfined);
+		function quality(a,b){
+			return a.aqi-b.aqi;
+		}
+		saveArray.sort(quality)
+
+
+
+		for(let y=0;y<saveArray.length;y++){
+		try{
+			$("body").append("<li></li>");
+			$("li")[y].innerHTML=saveArray[y].city+" : "+saveArray[y].aqi;
+			// $("li")[y].innerHTML=saveArray[y].city+", PM2.5:"+saveArray[y].aqi;
+			$("body").append(`<hr width=${Number(saveArray[y].aqi)+100}px align=left>`);
+		}catch(e){
+				console.log(e)
+			}
+		}
+
+		for(let i = 0; i < $("hr").length;i++){
+			var check =$("hr")[i].width.split("px")[0];
+		if(check<151){
+		$("hr")[i].setAttribute("color","#009966");
+		}else if(check>150&&check<201){
+		$("hr")[i].setAttribute("color","#FFDE33");
+		}else if(check>200&&check<251){
+		$("hr")[i].setAttribute("color","#FF9933");
+		}else if(check>250&&check<301){
+		$("hr")[i].setAttribute("color","#CC0033");
+		}else if(check>300&&check<401){
+		$("hr")[i].setAttribute("color","#660099");
+		}else if(check>400&&check<600){
+		$("hr")[i].setAttribute("color","#7E0023");
+		}
+	}
+
+		return saveArray;
+	}
+window.onload=function(){
+	setTimeout(copyCity,3000);
+	console.log(true)
+}
+</script>
+</html>
