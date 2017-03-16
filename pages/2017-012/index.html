@@ -156,8 +156,16 @@ var URL= 'https://wind.waqi.info/mapq/bounds/?bounds=21.53484700204879,78.530273
 		return saveArray;
 	}
 window.onload=function(){
-	setTimeout(copyCity,3000);
+	console.log(setInterval(init,1500));//文档加载完成之后就开始每隔1.5秒执行init函数
 	console.log(true)
+}
+function init(){
+	//copycity函数会渲染文档节点，在此之前li节点的长度为o
+	//通过判断li的节点长度，在小于400之前，执行渲染文档
+	//在渲染文档执行完成后，则清除setinterval的函数
+	//setinterval开始执行时会返回一个数字，代表该interval的id，可用于clearinterval消除
+	console.log("is checking");
+	if($("li").length<400){copyCity()}else{clearInterval(1);clearInterval(2);console.log("the li's length is "+$("li").length+" ,it's check complete.")};
 }
 </script>
 </html>
