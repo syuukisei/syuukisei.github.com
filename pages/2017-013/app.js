@@ -520,12 +520,12 @@ p.nominalBounds = new cjs.Rectangle(-1,-1,211.2,247.3);
 
 	// 图层 1
 	this.instance = new lib.元件142("synched",0,false);
-	this.instance.setTransform(300,300.5,1.709,1.709,0,0,0,104.6,122.7);
+	this.instance.setTransform(300,300.5,2.174,2.174,0,0,0,104.6,122.7);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(120));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(419.9,389.5,360.1,421.8);
+p.nominalBounds = new cjs.Rectangle(370.9,332.1,458.1,536.6);
 
 })(lib = lib||{}, images = images||{}, createjs = createjs||{}, ss = ss||{});
 var lib, images, createjs, ss;
