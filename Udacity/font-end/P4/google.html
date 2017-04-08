@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="text/javascript">
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 22.598148, lng: 113.847397},
+    // 22.598148,113.847397,16z
+    zoom: 16
+    //zoom代表缩放比例，和比例尺大小成正比例
+  });
+}
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_qDMCi_61_WgJoz7WZ5HF88ttNpRiwgQ&callback=initMap">
+    </script>
+  </body>
+</html>
