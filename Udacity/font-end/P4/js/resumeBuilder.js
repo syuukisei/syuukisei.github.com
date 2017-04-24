@@ -15,36 +15,51 @@ var bio = {
 	skills:[ '前端','动画设计','平面设计'],
 	biopic: 'images/pic.jpg',
 	live:'深圳市宝安区固戍',
-	display: null
+	display: function() {
+		$("#topContacts,#footerContacts").append(HTMLmobile,HTMLemail,HTMLtwitter,HTMLgithub,HTMLlocation);
+   		// $("#header").append(HTMLskills);
+    		$("#header").append(HTMLbioPic,HTMLwelcomeMsg,HTMLskillsStart,HTMLskills);
+    		return console.log("bio is display.")
+		// body...
+	}
 }
 var education = {
-	schools:{
+	schools:[{
 		name: '深圳技师学院',
 		location: '深圳',
 		degree: '中专',
 		majors: '计算机动画',
 		dates: '2009-2015',
 		url: 'http://www.ssti.net.cn/main/'
-	},
-	onlineCourses:{
-		title: '前端工程师纳米学位',
+	}],
+	onlineCourses:[{
+		title:'前端工程师纳米学位',
 		school: '优达学城',
 		dates: '2017年至今',
 		classUrl:'https://cn.udacity.com/courses/web-development',
-		url: 'https://cn.udacity.com/',
-	},
-	display: null
+		url: 'https://cn.udacity.com/'
+	}],
+	display: function() {
+		$("#education").append(HTMLschoolStart,HTMLschoolName,HTMLschoolDegree,HTMLschoolDates,HTMLschoolLocation,HTMLschoolMajor);
+    		$("#education").append(HTMLonlineTitle,HTMLonlineSchool,HTMLonlineDates,HTMLonlineURL);
+    		return console.log("education is display.")
+		// body...
+	}
 }
 var work  = {
-	jobs: {
+	jobs: [{
 		employer: '深圳市盈天下广告有限公司',
 		title: '视觉设计师',
 		location: '深圳',
 		dates: '201406-201511',
 		description: '视觉相关的动画和平面设计',
 		url: 'http://www.iwinad.com/'
-	},
-	display: null
+	}],
+	display: function() {
+		$("#workExperience").append(HTMLworkStart,HTMLworkEmployer,HTMLworkTitle,HTMLworkDates,HTMLworkDescription);
+    		return console.log("work is display.")
+		// body...
+	}
 }
 var projects = {
 	projects:{
@@ -54,5 +69,9 @@ var projects = {
 		images: null,
 		url:'http://www.huawei.com/cn/events/mwc/2017/maxmizing-network-value/home-broadband'
 	},
-	display: null
+	display: function() {
+		$("#projects").append(HTMLprojectStart,HTMLprojectTitle,HTMLprojectDates,HTMLprojectDescription);
+    		return console.log("projects is display.")
+		// body...
+	}
 }
