@@ -92,7 +92,7 @@ var work  = {
 	display: function() {
 		for(var i = 0;i<work.jobs.length; i++){
 		$("#workExperience").append(HTMLworkEmployer.replace("%data%",work.jobs[0].employer),
-		HTMLworkEmployer.replace("%url%",work.jobs[0].url),
+		//HTMLworkEmployer.replace("%url%",work.jobs[0].url),
 		HTMLworkTitle.replace("%data%",work.jobs[0].title),
 		HTMLworkDates.replace("%data%",work.jobs[0].dates),
 		HTMLworkLocation.replace("%data%",work.jobs[0].location),
