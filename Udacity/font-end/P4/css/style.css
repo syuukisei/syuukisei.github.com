@@ -199,7 +199,9 @@ span {
 #lets-connect>h2{
   color:#fff;
 }
-
+.work-Images{
+  max-width: 500px;
+}
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {
