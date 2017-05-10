@@ -107,7 +107,7 @@ var projects = {
 		title: '华为快速部署家庭宽带项目',
 		dates: '201701-201702',
 		description: '因盈天下广告有限公司公司（设计外包公司）华为快速部署家庭宽带项目无法达到客户华为公司的需求，被返聘为短期合同工，负责展墙六大块屏幕的动画设计。完好解决华为方对该项目动画效果精致细腻的需求，得到华为领导客户的肯定评价。',
-		images: ["http://www-file.huawei.com/-/media/CORPORATE/minisite/mwc2017/v3/image/route.jpg?la=zh"],
+		images: ["images/route.jpg"],
 		url:'http://www.huawei.com/cn/events/mwc/2017/maxmizing-network-value/home-broadband'
 	}],
 	display: function() {
@@ -127,26 +127,26 @@ var projects = {
 	}
 }
 
-      console.log(`The jQuery version is ${$.fn.jquery}`);
-      var br = '<hr/>';
-      HTMLwelcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
-      HTMLbioPic = HTMLbioPic.replace("%data%",bio.biopic);
-      var skillsList ='<li>%data%</li>';
-      // googleMap = googleMap.replace("%data%",bio.live);
-      // var HTMLmap = '<div id="map"></div>';
+console.log(`The jQuery version is ${$.fn.jquery}`);
+var br = '<hr/>';
+HTMLwelcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
+HTMLbioPic = HTMLbioPic.replace("%data%",bio.biopic);
+var skillsList ='<li>%data%</li>';
+// googleMap = googleMap.replace("%data%",bio.live);
+// var HTMLmap = '<div id="map"></div>';
 
-      $("#mapDiv").append(googleMap);
-      $('#workExperience').addClass('center-content')
-      $('#projects').addClass('center-content')
-      $('#education').addClass('center-content')
-      $('#workExperience').addClass('center-content')
+$("#mapDiv").append(googleMap);
+$('#workExperience').addClass('center-content')
+$('#projects').addClass('center-content')
+$('#education').addClass('center-content')
+$('#workExperience').addClass('center-content')
 
-      // $('#workExperience').addClass('center-content')
-      // $('#projects').addClass('center-content')
-      // $('#education').addClass('center-content')
-      // $('#workExperience').addClass('center-content')
+// $('#workExperience').addClass('center-content')
+// $('#projects').addClass('center-content')
+// $('#education').addClass('center-content')
+// $('#workExperience').addClass('center-content')
 
-      bio.display();
-      work.display();
-      projects.display();
-      education.display();
+bio.display();
+work.display();
+projects.display();
+education.display();
