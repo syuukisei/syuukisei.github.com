@@ -40,7 +40,7 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img class="work-Images"src="%data%">';
+var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
@@ -233,3 +233,20 @@ function initializeMap() {
   pinPoster(locations);
 
 }
+
+/*
+Uncomment the code below when you're ready to implement a Google Map!
+*/
+window.addEventListener("load",initializeMap);
+window.addEventListener("resize",function(e){
+  map.fitBounds(mapBounds);
+})
+// Calls the initializeMap() function when the page loads
+//window.addEventListener('load', initializeMap);
+
+// Vanilla JS way to listen for resizing of the window
+// and adjust map bounds
+window.addEventListener('resize', function(e) {
+  // Make sure the map bounds get updated on page resize
+ map.fitBounds(mapBounds);
+});
