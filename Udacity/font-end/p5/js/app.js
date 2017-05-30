@@ -17,7 +17,7 @@ Enemy.prototype.update = function(dt) {
     // 你应该给每一次的移动都乘以 dt 参数，以此来保证游戏在所有的电脑上
     // 都是以同样的速度运行的
     this.x+=theWorldLevel;
-    if(this.x>525){this.x = -150;}
+    if(this.x>525){this.x = randomLocationY();}
 };
 
 
