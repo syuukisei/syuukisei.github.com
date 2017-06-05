@@ -35,7 +35,7 @@ var Player = function(){
 }
 Player.prototype.level = function() {
     theWorldLevel +=0.5;//世界等级+1
-    alert("当前世界等级为" + (theWorldLevel-4.5)+"级")；
+    alert("当前世界等级为" + (theWorldLevel-4.5)+"级");
     return console.log("当前世界等级为" + (theWorldLevel-4.5)+"级");
 }
 Player.prototype.reset = function(){
