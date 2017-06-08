@@ -1,87 +1,107 @@
-// 这是我们的玩家要躲避的敌人
-var Enemy = function(x,y) {
-    // 要应用到每个敌人的实例的变量写在这里
-    // 我们已经提供了一个来帮助你实现更多
-    this.initLoction(x,y);
-    // 敌人的图片或者雪碧图，用一个我们提供的工具函数来轻松的加载文件
-    this.sprite = 'images/enemy-bug.png';
-};
-var theWorldLevel = 5;
-// 此为游戏必须的函数，用来更新敌人的位置
-// 参数: dt ，表示时间间隙
-Enemy.prototype.initLoction = function(x,y){
+"use strict";// 函数级别严格模式语法
+var Life = function(x,y,sprite) {
+    //生物，传入三个参数，横纵坐标和雪碧图对应的位置
     this.x = x;
     this.y = y;
+    this.sprite = sprite;
 }
-Enemy.prototype.update = function(dt) {
-    // 你应该给每一次的移动都乘以 dt 参数，以此来保证游戏在所有的电脑上
-    // 都是以同样的速度运行的
-    this.x+=theWorldLevel;
-    if(this.x>525){this.x = randomLocationY();}
-};
-
-
-// 此为游戏必须的函数，用来在屏幕上画出敌人，
-Enemy.prototype.render = function() {
+Life.prototype.render = function() {
+    //自带的原型reder函数
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+var theWorldLevel = 1;//默认的世界等级
+var EnemyBugImg = 'images/enemy-bug.png';//所有的bug都用用一个图片
+var PlayerImg = 'images/char-boy.png';//玩家的img
+
+var Enemy = function(x,y,z) {
+    //传入三个参数，对应父类的参数
+    Life.call(this, x, y, z);
+    return this;
 };
 
-// 现在实现你自己的玩家类
-// 这个类需要一个 update() 函数， render() 函数和一个 handleInput()函数
-var Player = function(){
-    this.x = 200;
-    this.y= 405;//默认的坐标
-    this.spriteList = ["images/char-boy.png"];
+Enemy.prototype = Object.create(Life.prototype);//继承父类原型
+Enemy.prototype.constructor = Enemy; //恢复正确的constructor
+var randomLocationY = function(){return -Math.random()*800-50;}//随机初始的x坐标
+Enemy.prototype.update = function() {
+    this.x+=theWorldLevel*1.5; //随着世界等级增加，对应的x轴运动速度也增加
+    if(this.x>525){this.x = randomLocationY();}//除了canva画布之外，并且不可见之后就重新出现
+};
+
+var Player = function(x,y,z,lifeCounts){
+    this.lifeCounts = lifeCounts;
+    Life.call(this, x, y, z);
+    //相对于父类，多了初始化的生命值属性
 }
-Player.prototype.level = function() {
-    theWorldLevel +=0.5;//世界等级+1
-    alert("当前世界等级为" + (theWorldLevel-4.5)+"级");
-    return console.log("当前世界等级为" + (theWorldLevel-4.5)+"级");
-}
-Player.prototype.reset = function(){
-      player= new Player();//重置游戏
-      return console.log("Reset The Game!")
+//和Enemy一样从父类继承过来，并委托回正确的创建者
+Player.prototype = Object.create(Life.prototype);
+Player.prototype.constructor = Player;
+
+Player.prototype.life = function(){
+    //跟dom中的文档节点对应起来
+    document.getElementById("playerLife").innerHTML = this.lifeCounts;
+    if(this.lifeCounts==0){
+        playerReder(10);alert("恭喜你！进行关卡达到了第"+theWorldLevel+"关!");
+        //输了就弹出到了第几关，重新渲染玩家，并让世界等级归一
+        theWorldLevel = 1;
+    }
 }
 Player.prototype.update = function(){
+
+    player.checkLoction();//检测玩家和bug位置的函数
     if(this.y<0){
-        player.reset();
-        player.level()
+        playerReder(1);//到了河，就会打印出胜利
         return console.log("win!");
     }
-    //检测到达河边，到了就重置
 };
-Player.prototype.render = function(){ctx.drawImage(Resources.get(this.spriteList[0]), this.x, this.y);};
 Player.prototype.handleInput = function(e){
     // console.log(e);
-        if(e=="right"){
-            this.x+=101;
-            if(this.x>402){this.x-=101};
-        }else if(e=="left"){
-            this.x-=101;
-             if(this.x<-2){this.x+=101};
-        }else if(e=="up"){
-            this.y-=83;
-             if(this.y<-92){this.y+=83};
-        }else if(e=="down"){
-            this.y+=83;
-             if(this.y>482){this.y-=83};
+    var TileWidth = 101;//每次x移动的像素
+    var TileHeight = 83;//每次y移动的像素
+    var RightMost = 402;//最大的x，不可超出
+    var LeftMost = -2;//最小的x，不可超出
+    var TopMost = -92;//最小的y，不可超出
+    var BottomMost = 482;//最大的y，不可超出
+        switch(e){
+            //检测键盘输入的按键。一一对应玩家的坐标属性
+            case "right":
+            this.x+=TileWidth;
+            if(this.x>RightMost){this.x-=TileWidth};
+            break;
+            case "left":
+            this.x-=TileWidth;
+            if(this.x<LeftMost){this.x+=TileWidth};
+            break;
+            case "up":
+            this.y-=TileHeight;
+            if(this.y<TopMost){this.y+=TileHeight};
+            break;
+            case "down":
+            this.y+=TileHeight;
+            if(this.y>BottomMost){this.y-=TileHeight};
+            break;
+            default:
+            break;
         }
-        // console.log(this.x+" "+this.y);
         return this.x;
 };
 
 // 现在实例化你的所有对象
 // 把所有敌人的对象都放进一个叫 allEnemies 的数组里面
-var randomLocationY = function(){
-    return -Math.random()*800-150;
-}
-var EnemyA = new Enemy(randomLocationY(),63);
-var EnemyB = new Enemy(randomLocationY(),146);
-var EnemyC = new Enemy(randomLocationY(),229);
-var EnemyD = new Enemy(randomLocationY(),312);
-var allEnemies = [EnemyA,EnemyB,EnemyC,EnemyD];
-// 把玩家对象放进一个叫 player 的变量里面
-
+var allEnemies = (function(){
+        var AllEnemies = [];//数组
+        var EnemyXGap = 83;//横向间隔
+        var EnemyInitX = 63;//纵向间隔
+        var EnemyA = new Enemy(randomLocationY(),EnemyInitX,EnemyBugImg);
+        var EnemyB = new Enemy(randomLocationY(),EnemyInitX+EnemyXGap,EnemyBugImg);
+        var EnemyC = new Enemy(randomLocationY(),EnemyInitX+EnemyXGap*2,EnemyBugImg);
+        var EnemyD = new Enemy(randomLocationY(),EnemyInitX+EnemyXGap*3,EnemyBugImg);
+        var EnemyE = new Enemy(randomLocationY(),EnemyInitX,EnemyBugImg);
+        var EnemyF = new Enemy(randomLocationY(),EnemyInitX+EnemyXGap,EnemyBugImg);
+        var EnemyG = new Enemy(randomLocationY(),EnemyInitX+EnemyXGap*2,EnemyBugImg);
+        var EnemyH = new Enemy(randomLocationY(),EnemyInitX+EnemyXGap*3,EnemyBugImg);
+        return AllEnemies = [EnemyA,EnemyB,EnemyC,EnemyD,EnemyE,EnemyF,EnemyG,EnemyH];
+})();//包含在一个立即执行并return数组的函数内部；
 
 // 这段代码监听游戏玩家的键盘点击事件并且代表将按键的关键数字送到 Play.handleInput()
 // 方法里面。你不需要再更改这段代码了。
@@ -102,13 +122,48 @@ Player.prototype.checkLoction = function(){
             (Math.abs(allEnemies[i].x-player.handleInput(0))<50)
             &&
             (Math.abs(allEnemies[i].y-player.y))<20){
-            player.reset();
-            return console.log("lose!")
+            playerReder(0);
+            console.log("lose");
          }
     }
 }
+var player;//玩家
+var playerInitX = 200;//默认x
+var playerInitY = 405;//默认y
+var playerReder = function(e) {
+    //从上面传来的e
+    if(e==10){
+        //首次初始为10
+        player = new Player(playerInitX,playerInitY,PlayerImg,e);
+        player.life();
+    }else{
+    switch(e){
+        case 0:
+        //输了，血量-1
+        player.lifeCounts--;
+        player = new Player(playerInitX,playerInitY,PlayerImg,player.lifeCounts);
+        player.life();
+        break;
+        case 1:
+        //赢了，位子重置
+        player = new Player(playerInitX,playerInitY,PlayerImg,player.lifeCounts);
+        theWorldLevel ++;//每过一关世界等级+1
+        document.getElementById("theWorldLevel").innerHTML = theWorldLevel;
+        player.life();
+        break;
+    }
+}
 
-var player = new Player();
-setInterval(player.checkLoction,10);
+}
+playerReder(10);
 
 
+
+
+// function screenXY(event){
+//     var x, y;
+//     document.getElementsByTagName('canvas')[0].getBoundingClientRect()
+//     x=event.screenX;
+//     y=event.screenY;
+//     console.log("X:" + x + ",Y:" + y)
+// };
