@@ -36,7 +36,6 @@ var Player = function(x,y,z,lifeCounts){
 //和Enemy一样从父类继承过来，并委托回正确的创建者
 Player.prototype = Object.create(Life.prototype);
 Player.prototype.constructor = Player;
-var WorldLevelHTML = document.getElementById("theWorldLevel").innerHTML;
 
 Player.prototype.life = function(){
     //跟dom中的文档节点对应起来
@@ -45,7 +44,7 @@ Player.prototype.life = function(){
         playerReder(10);alert("恭喜你！进行关卡达到了第"+theWorldLevel+"关!");
         //输了就弹出到了第几关，重新渲染玩家，并让世界等级归一
         theWorldLevel = 1;
-        WorldLevelHTML = theWorldLevel;
+        document.getElementById("theWorldLevel").innerHTML = 1;
     }
 }
 Player.prototype.update = function(){
