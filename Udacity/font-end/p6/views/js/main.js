@@ -420,8 +420,9 @@ var resizePizzas = function(size) {
 
    // 返回不同的尺寸以将披萨元素由一个尺寸改成另一个尺寸。由changePizzaSlices(size)函数调用
   var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
+  var oldWidth = document.querySelectorAll(".randomPizzaContainer")[0].offsetWidth;
   function determineDx (elem, size) {
-    var oldWidth = elem.offsetWidth;
+    //var oldWidth = elem.offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
     // 将值转成百分比宽度
