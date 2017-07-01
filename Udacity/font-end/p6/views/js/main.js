@@ -448,9 +448,10 @@ var resizePizzas = function(size) {
   // 遍历披萨的元素并改变它们的宽度
   function changePizzaSizes(size) {
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+      var element = document.querySelectorAll(".randomPizzaContainer")[i];
+      var dx = determineDx(element, size);
+     // var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      element.style.width = (element.offsetWidth + dx) + 'px';;
     }
   }
 
