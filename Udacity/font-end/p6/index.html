@@ -8,7 +8,7 @@
     <title>Cameron Pittman: Portfolio</title>
 
     <!-- 嗯，web 字体对速度的影响有多大呢？测量一下吧 -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
 
    
     <link href="css/print.css" rel="stylesheet" media="print">
@@ -69,6 +69,20 @@
       </footer>
     </div>
     <script src="http://www.google-analytics.com/analytics.js"></script>
-    <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript">
+      loadCSS("//fonts.googleapis.com/css?family=Open+Sans:400,700");
+    </script>
+    <style>
+    @media print {
+    * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
+    a, a:visited { color: #444 !important; text-decoration: underline; }
+    a[href]:after { content: " (" attr(href) ")"; }
+    tr, img { page-break-inside: avoid; }
+    img { max-width: 100% !important; }
+    @page { margin: 0.5cm; }
+    p, h2, h3 { orphans: 3; widows: 3; }
+    h2, h3{ page-break-after: avoid; }
+    }
+    </style>
   </body>
 </html>
