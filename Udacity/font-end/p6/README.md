@@ -1,6 +1,13 @@
 ## 网站性能优化项目
 
-1.如何启用该项目：请打开[Cameron Pittman: Portfolio](https://syuukisei.github.io/Udacity/font-end/p6/)
+1.查看优化后的项目，请打开：[Cameron Pittman: Portfolio](https://syuukisei.github.io/Udacity/font-end/p6/)
+
+2.优化概览：
+* 在[PageSpeed 分数](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fsyuukisei.github.io%2FUdacity%2Ffont-end%2Fp6%2F&tab=mobile)得出结果后，优化图片压缩、关键渲染路径和异步加载Javascript代码；
+* 在[去除卡顿]()中，优化图片压缩、消除了强制布局，提升帧率；
+* 在[调整 pizza 大小]()时，优化了js获取文档节点的索引速度；
+* 添加注释
+* 编写readme
 
 你要做的是尽可能优化这个在线项目的速度。注意，请应用你之前在[网站性能优化课程](https://cn.udacity.com/course/website-performance-optimization--ud884/)中学习的技术来优化关键渲染路径并使这个页面尽可能快的渲染。
 
