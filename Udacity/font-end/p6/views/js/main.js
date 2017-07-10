@@ -420,13 +420,13 @@ var resizePizzas = function(size) {
       var newwidth;
       switch(size) {
         case "1":
-          newwidth = 25;
+          newwidth = 15;
           break;
         case "2":
-          newwidth = 33;
+          newwidth = 25;
           break;
         case "3":
-          newwidth = 50;
+          newwidth = 35;
           break;
           default:"bug in changePizzaSizes";
       }
