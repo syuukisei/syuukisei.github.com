@@ -1,5 +1,7 @@
 ## 网站性能优化项目
 
+1.如何启用该项目：请打开[Cameron Pittman: Portfolio](https://syuukisei.github.io/Udacity/font-end/p6/)
+
 你要做的是尽可能优化这个在线项目的速度。注意，请应用你之前在[网站性能优化课程](https://cn.udacity.com/course/website-performance-optimization--ud884/)中学习的技术来优化关键渲染路径并使这个页面尽可能快的渲染。
 
 开始前，请导出这个代码库并检查代码。
