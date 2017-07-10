@@ -415,7 +415,6 @@ var resizePizzas = function(size) {
         console.log("bug in changeSliderLabel");
     }
   }
-
   changeSliderLabel(size);
   function changePizzaSizes (size) {
       var newwidth;
@@ -432,7 +431,7 @@ var resizePizzas = function(size) {
           default:"bug in changePizzaSizes";
       }
     // 遍历披萨的元素并改变它们的宽度
-    var randomPizzas = document.getElementsByClassName(".randomPizzaContainer");
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
     for (var i = 0; i < randomPizzas.length; i++) {
       randomPizzas[i].style.width = newwidth + "%";
     }
